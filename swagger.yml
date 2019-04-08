@@ -36,8 +36,6 @@ paths:
       responses:
         201:
           description: "Id and description of the new card"
-          schema:
-            $ref: "#/definitions/CardDTO"
         401:
           description: "Unauthorized"
         403:
@@ -96,8 +94,6 @@ paths:
       responses:
         200:
           description: "Payment reference"
-          schema:
-            $ref: "#/definitions/CardDTO"
         201:
           description: "Created"
         401:
