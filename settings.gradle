@@ -1,0 +1,6 @@
+rootProject.name = 'htbhf-card-services-api-parent'
+include "htbhf-card-services-api", "htbhf-card-services-api-db", "htbhf-card-services-api-manifest"
+
+project(":htbhf-card-services-api").projectDir = file("api")
+project(":htbhf-card-services-api-db").projectDir = file("db")
+project(":htbhf-card-services-api-manifest").projectDir = file("manifest")
