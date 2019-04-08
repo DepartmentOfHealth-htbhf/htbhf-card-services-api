@@ -11,7 +11,7 @@ info:
   license:
     name: "MIT"
     url: "https://opensource.org/licenses/MIT"
-host: "localhost:38199"
+host: "localhost:39413"
 basePath: "/"
 tags:
 - name: "card-controller"
