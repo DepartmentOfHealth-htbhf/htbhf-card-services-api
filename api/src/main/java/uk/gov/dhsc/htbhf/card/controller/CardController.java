@@ -30,7 +30,7 @@ public class CardController {
 
     @PostMapping
     @ApiOperation("Create a new card")
-    @ApiResponses({@ApiResponse(code = 201, message = "Id and description of the new card", response = CardDTO.class)})
+    @ApiResponses({@ApiResponse(code = 201, message = "Id and description of the new card")})
     @ResponseStatus(HttpStatus.CREATED)
     public void createCard(@RequestBody @ApiParam("Details of the new card") CardDTO card) {
         log.debug("Received new card request");
@@ -38,7 +38,7 @@ public class CardController {
 
     @PostMapping("/{cardId}/transfer")
     @ApiOperation("Transfer funds to a card")
-    @ApiResponses({@ApiResponse(code = 200, message = "Payment reference", response = CardDTO.class)})
+    @ApiResponses({@ApiResponse(code = 200, message = "Payment reference")})
     public void transferFunds(@PathVariable("cardId") String cardId,
                               @RequestBody @ApiParam("Details of the new card") TransferRequestDTO transferRequest) {
         log.debug("Received new funds transfer request");

@@ -1,10 +1,10 @@
-package uk.gov.dhsc.htbhf.card.helper;
+package uk.gov.dhsc.htbhf.card.testhelper;
 
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
 import java.util.UUID;
 
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.TRANSFER_AMOUNT;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.TRANSFER_AMOUNT;
 
 public class TransferRequestDTOTestDataFactory {
 

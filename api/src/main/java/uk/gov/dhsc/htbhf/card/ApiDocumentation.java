@@ -27,6 +27,7 @@ public class ApiDocumentation {
     @Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .host("N/A")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(this.getClass().getPackageName()))
                 .paths(PathSelectors.any())
@@ -36,9 +37,8 @@ public class ApiDocumentation {
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                "DWP API Service",
-                "Responsible for taking Universal Credit eligibility requests and checking them against DWP data "
-                        + "in an internal database before making a call to the real DWP API.",
+                "Card Service",
+                "Responsible for taking in requests handling card operations and sending them to the card provider's api.",
                 appVersion,
                 "",
                 new Contact("Department Of Health", "https://github.com/DepartmentOfHealth-htbhf", "dh-htbhf-team@equalexperts.com"),

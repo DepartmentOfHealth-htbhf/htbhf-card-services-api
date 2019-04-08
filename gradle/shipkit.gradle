@@ -5,7 +5,7 @@
 //     https://github.com/mockito/shipkit/blob/master/docs/getting-started.md
 //
 shipkit {
-   gitHub.repository = "DepartmentOfHealth-htbhf/htbhf-dwp-api"
+   gitHub.repository = "DepartmentOfHealth-htbhf/htbhf-card-services-api"
 
    gitHub.readOnlyAuthToken = "765881d6a8c080bc220404116459dcfd4a0d4dfd"
 
@@ -23,11 +23,11 @@ allprojects {
 
             pkg {
                 repo = 'maven'                       // https://bintray.com/departmentofhealth-htbhf/maven
-                name = 'htbhf-dwp-api'               // https://bintray.com/departmentofhealth-htbhf/maven/htbhf-dwp-api
+                name = 'htbhf-card-services-api'     // https://bintray.com/departmentofhealth-htbhf/maven/htbhf-card-services-api
                 userOrg = 'departmentofhealth-htbhf' // https://bintray.com/departmentofhealth-htbhf
                 user = System.getenv('BINTRAY_USER')
                 licenses = ['MIT']
-                labels = ['help to buy healthy food', 'DWP API']
+                labels = ['help to buy healthy food', 'Card services API']
             }
         }
     }
