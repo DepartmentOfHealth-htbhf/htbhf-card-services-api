@@ -1,9 +1,8 @@
 swagger: "2.0"
 info:
-  description: "Responsible for taking Universal Credit eligibility requests and checking\
-    \ them against DWP data in an internal database before making a call to the real\
-    \ DWP API."
-  title: "DWP API Service"
+  description: "Responsible for taking in requests handling card operations and sending\
+    \ them to the card provider's api."
+  title: "Card Service"
   contact:
     name: "Department Of Health"
     url: "https://github.com/DepartmentOfHealth-htbhf"
@@ -11,7 +10,7 @@ info:
   license:
     name: "MIT"
     url: "https://opensource.org/licenses/MIT"
-host: "localhost:39413"
+host: "N/A"
 basePath: "/"
 tags:
 - name: "card-controller"

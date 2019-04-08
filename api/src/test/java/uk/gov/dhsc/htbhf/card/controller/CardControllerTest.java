@@ -16,12 +16,12 @@ import java.net.URI;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
-import static uk.gov.dhsc.htbhf.card.helper.CardDTOTestDataFactory.aValidCard;
-import static uk.gov.dhsc.htbhf.card.helper.TransferRequestDTOTestDataFactory.aValidTransferRequest;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardDTOTestDataFactory.aValidCard;
+import static uk.gov.dhsc.htbhf.card.testhelper.TransferRequestDTOTestDataFactory.aValidTransferRequest;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CardControllerIntegrationTest {
+class CardControllerTest {
 
     private static final URI ENDPOINT = URI.create("/v1/cards");
 

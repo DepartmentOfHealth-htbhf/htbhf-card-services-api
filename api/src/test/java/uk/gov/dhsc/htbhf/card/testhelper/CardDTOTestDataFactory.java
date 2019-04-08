@@ -1,15 +1,15 @@
-package uk.gov.dhsc.htbhf.card.helper;
+package uk.gov.dhsc.htbhf.card.testhelper;
 
 import uk.gov.dhsc.htbhf.card.model.CardDTO;
 
 import java.util.UUID;
 
-import static uk.gov.dhsc.htbhf.card.helper.AddressDTOTestDataFactory.aValidAddress;
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.HOMER_DOB;
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.HOMER_EMAIL;
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.HOMER_FIRST_NAME;
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.HOMER_MOBILE;
-import static uk.gov.dhsc.htbhf.card.helper.TestConstants.SIMPSON_LAST_NAME;
+import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.aValidAddress;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_DOB;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_EMAIL;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_FIRST_NAME;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_MOBILE;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSON_LAST_NAME;
 
 public class CardDTOTestDataFactory {
 

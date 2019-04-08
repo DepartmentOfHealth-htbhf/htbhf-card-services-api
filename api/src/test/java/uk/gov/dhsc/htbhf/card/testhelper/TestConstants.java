@@ -1,4 +1,4 @@
-package uk.gov.dhsc.htbhf.card.helper;
+package uk.gov.dhsc.htbhf.card.testhelper;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

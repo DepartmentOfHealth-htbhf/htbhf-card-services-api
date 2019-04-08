@@ -12,7 +12,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.http.HttpStatus.OK;
 
 @ExtendWith(SpringExtension.class)
-class ServiceIsRunningSpec {
+class ServiceIsRunningTest {
 
     private static final String BASE_URL = System.getProperty("base_url") == null ? "http://localhost:8080" : System.getProperty("base_url");
     private static final String PROTOCOL = BASE_URL.startsWith("http") ? "" : "https://";
@@ -22,7 +22,6 @@ class ServiceIsRunningSpec {
 
     @Test
     void healthEndpointShouldReturnUp() {
-        System.out.println("Endpoint is: " + HEALTH_URI.toString());
         ResponseEntity<String> response = client.getForEntity(HEALTH_URI, String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
