@@ -10,13 +10,17 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardDTO;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
+import uk.gov.dhsc.htbhf.errorhandler.ErrorResponse;
 
 import java.net.URI;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardDTOTestDataFactory.aCardWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardDTOTestDataFactory.aValidCard;
+import static uk.gov.dhsc.htbhf.card.testhelper.TransferRequestDTOTestDataFactory.aTransferRequestWithAmount;
 import static uk.gov.dhsc.htbhf.card.testhelper.TransferRequestDTOTestDataFactory.aValidTransferRequest;
 
 @ExtendWith(SpringExtension.class)
@@ -38,12 +42,38 @@ class CardControllerTest {
     }
 
     @Test
+    void shouldReturnBadRequestWhenCreatingCardWithAddressMissing() {
+        CardDTO card = aCardWithAddress(null);
+
+        ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(ENDPOINT, card, ErrorResponse.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(BAD_REQUEST);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().getFieldErrors().size()).isEqualTo(1);
+        assertThat(response.getBody().getFieldErrors().get(0).getField()).isEqualTo("address");
+        assertThat(response.getBody().getFieldErrors().get(0).getMessage()).isEqualTo("must not be null");
+    }
+
+    @Test
     void shouldTransferFundsToCard() {
         TransferRequestDTO transferRequest = aValidTransferRequest();
 
         ResponseEntity<Void> response = restTemplate.postForEntity(ENDPOINT + "/1/transfer", transferRequest, Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
+    }
+
+    @Test
+    void shouldReturnBadRequestWhenTransferringFundsWithNoAmount() {
+        TransferRequestDTO card = aTransferRequestWithAmount(null);
+
+        ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(ENDPOINT + "/1/transfer", card, ErrorResponse.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(BAD_REQUEST);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().getFieldErrors().size()).isEqualTo(1);
+        assertThat(response.getBody().getFieldErrors().get(0).getField()).isEqualTo("amount");
+        assertThat(response.getBody().getFieldErrors().get(0).getMessage()).isEqualTo("must not be null");
     }
 
     @Test

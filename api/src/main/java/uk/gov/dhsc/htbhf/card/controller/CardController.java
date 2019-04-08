@@ -20,6 +20,7 @@ import uk.gov.dhsc.htbhf.card.model.CardDTO;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
 import java.math.BigDecimal;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("v1/cards")
@@ -32,7 +33,7 @@ public class CardController {
     @ApiOperation("Create a new card")
     @ApiResponses({@ApiResponse(code = 201, message = "Id and description of the new card")})
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCard(@RequestBody @ApiParam("Details of the new card") CardDTO card) {
+    public void createCard(@RequestBody @Valid @ApiParam("Details of the new card") CardDTO card) {
         log.debug("Received new card request");
     }
 
@@ -40,7 +41,7 @@ public class CardController {
     @ApiOperation("Transfer funds to a card")
     @ApiResponses({@ApiResponse(code = 200, message = "Payment reference")})
     public void transferFunds(@PathVariable("cardId") String cardId,
-                              @RequestBody @ApiParam("Details of the new card") TransferRequestDTO transferRequest) {
+                              @RequestBody @Valid @ApiParam("Details of the new card") TransferRequestDTO transferRequest) {
         log.debug("Received new funds transfer request");
     }
 
