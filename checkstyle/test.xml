@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.15">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/CardServicesApplicationTests.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/controller/CardControllerTest.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/AddressDTOTest.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/CardDTOTest.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/TransferRequestDTOTest.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/AddressDTOTestDataFactory.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/CardDTOTestDataFactory.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/TestConstants.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/TransferRequestDTOTestDataFactory.java">
+</file>
+</checkstyle>

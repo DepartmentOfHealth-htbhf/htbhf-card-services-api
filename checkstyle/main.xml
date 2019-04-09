@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.15">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/ApiDocumentation.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/CardServicesApplication.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/controller/CardController.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/AddressDTO.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/CardBalance.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/CardDTO.java">
+</file>
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/TransferRequestDTO.java">
+</file>
+</checkstyle>
