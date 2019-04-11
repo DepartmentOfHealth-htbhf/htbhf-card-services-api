@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardDTO;
+import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 import uk.gov.dhsc.htbhf.errorhandler.ErrorResponse;
 
@@ -36,9 +37,11 @@ class CardControllerTest {
     void shouldCreateCard() {
         CardDTO card = aValidCard();
 
-        ResponseEntity<Void> response = restTemplate.postForEntity(ENDPOINT, card, Void.class);
+        ResponseEntity<CardResponse> response = restTemplate.postForEntity(ENDPOINT, card, CardResponse.class);
 
         assertThat(response.getStatusCode()).isEqualTo(CREATED);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().getCardAccountId()).isNotNull();
     }
 
     @Test

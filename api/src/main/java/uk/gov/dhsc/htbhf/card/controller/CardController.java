@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardDTO;
+import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 import javax.validation.Valid;
 
 @RestController
@@ -31,17 +33,20 @@ public class CardController {
 
     @PostMapping
     @ApiOperation("Create a new card")
-    @ApiResponses({@ApiResponse(code = 201, message = "Id and description of the new card")})
+    @ApiResponses({@ApiResponse(code = 201, message = "The response to the create card request")})
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCard(@RequestBody @Valid @ApiParam("Details of the new card") CardDTO card) {
+    public CardResponse createCard(@RequestBody @Valid @ApiParam("Details of the new card") CardDTO card) {
         log.debug("Received new card request");
+        return CardResponse.builder()
+                .cardAccountId(UUID.randomUUID().toString())
+                .build();
     }
 
     @PostMapping("/{cardId}/transfer")
     @ApiOperation("Transfer funds to a card")
     @ApiResponses({@ApiResponse(code = 200, message = "Payment reference")})
     public void transferFunds(@PathVariable("cardId") String cardId,
-                              @RequestBody @Valid @ApiParam("Details of the new card") TransferRequestDTO transferRequest) {
+                              @RequestBody @Valid @ApiParam("Balance transfer request information") TransferRequestDTO transferRequest) {
         log.debug("Received new funds transfer request");
     }
 
