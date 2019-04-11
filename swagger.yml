@@ -35,7 +35,9 @@ paths:
           $ref: "#/definitions/CardDTO"
       responses:
         201:
-          description: "Id and description of the new card"
+          description: "The response to the create card request"
+          schema:
+            $ref: "#/definitions/CardResponse"
         401:
           description: "Unauthorized"
         403:
@@ -87,7 +89,7 @@ paths:
         type: "string"
       - in: "body"
         name: "transferRequest"
-        description: "Details of the new card"
+        description: "Balance transfer request information"
         required: false
         schema:
           $ref: "#/definitions/TransferRequestDTO"
@@ -169,6 +171,15 @@ definitions:
         description: "Mobile number of the card owner"
     title: "CardDTO"
     description: "The card object"
+  CardResponse:
+    type: "object"
+    properties:
+      cardAccountId:
+        type: "string"
+        example: "19d39727-dcc4-487a-8ff0-e86996540617"
+        description: "The id of the account for the new card"
+    title: "CardResponse"
+    description: "The response for making creating a new card"
   TransferRequestDTO:
     type: "object"
     properties:
