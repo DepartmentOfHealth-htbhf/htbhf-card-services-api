@@ -17,43 +17,48 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardDTO;
+import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(&quot;v1/cards&quot;)
 @AllArgsConstructor
-<span class="fc" id="L28">@Slf4j</span>
+<span class="fc" id="L30">@Slf4j</span>
 @Api
 public class CardController {
 
     @PostMapping
     @ApiOperation(&quot;Create a new card&quot;)
-    @ApiResponses({@ApiResponse(code = 201, message = &quot;Id and description of the new card&quot;)})
+    @ApiResponses({@ApiResponse(code = 201, message = &quot;The response to the create card request&quot;)})
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCard(@RequestBody @Valid @ApiParam(&quot;Details of the new card&quot;) CardDTO card) {
-<span class="fc" id="L37">        log.debug(&quot;Received new card request&quot;);</span>
-<span class="fc" id="L38">    }</span>
+    public CardResponse createCard(@RequestBody @Valid @ApiParam(&quot;Details of the new card&quot;) CardDTO card) {
+<span class="fc" id="L39">        log.debug(&quot;Received new card request&quot;);</span>
+<span class="fc" id="L40">        return CardResponse.builder()</span>
+<span class="fc" id="L41">                .cardAccountId(UUID.randomUUID().toString())</span>
+<span class="fc" id="L42">                .build();</span>
+    }
 
     @PostMapping(&quot;/{cardId}/transfer&quot;)
     @ApiOperation(&quot;Transfer funds to a card&quot;)
     @ApiResponses({@ApiResponse(code = 200, message = &quot;Payment reference&quot;)})
     public void transferFunds(@PathVariable(&quot;cardId&quot;) String cardId,
-                              @RequestBody @Valid @ApiParam(&quot;Details of the new card&quot;) TransferRequestDTO transferRequest) {
-<span class="fc" id="L45">        log.debug(&quot;Received new funds transfer request&quot;);</span>
-<span class="fc" id="L46">    }</span>
+                              @RequestBody @Valid @ApiParam(&quot;Balance transfer request information&quot;) TransferRequestDTO transferRequest) {
+<span class="fc" id="L50">        log.debug(&quot;Received new funds transfer request&quot;);</span>
+<span class="fc" id="L51">    }</span>
 
     @GetMapping(&quot;/{cardId}/balance&quot;)
     @ApiOperation(&quot;Transfer funds to a card&quot;)
     @ApiResponses({@ApiResponse(code = 200, message = &quot;Card balance&quot;, response = CardBalance.class)})
     public CardBalance getBalance(@PathVariable(&quot;cardId&quot;) String cardId) {
-<span class="fc" id="L52">        log.debug(&quot;Received request for card balance&quot;);</span>
-<span class="fc" id="L53">        return CardBalance.builder()</span>
-<span class="fc" id="L54">                .availableBalance(BigDecimal.TEN)</span>
-<span class="fc" id="L55">                .ledgerBalance(BigDecimal.ONE)</span>
-<span class="fc" id="L56">                .build();</span>
+<span class="fc" id="L57">        log.debug(&quot;Received request for card balance&quot;);</span>
+<span class="fc" id="L58">        return CardBalance.builder()</span>
+<span class="fc" id="L59">                .availableBalance(BigDecimal.TEN)</span>
+<span class="fc" id="L60">                .ledgerBalance(BigDecimal.ONE)</span>
+<span class="fc" id="L61">                .build();</span>
     }
 
 
