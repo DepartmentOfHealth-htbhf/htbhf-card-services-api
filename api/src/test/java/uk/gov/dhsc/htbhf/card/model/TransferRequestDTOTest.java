@@ -15,7 +15,7 @@ class TransferRequestDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldValidateTransferRequestSuccessfully() {
-        var transferRequest = aValidTransferRequest();
+        TransferRequestDTO transferRequest = aValidTransferRequest();
 
         Set<ConstraintViolation<TransferRequestDTO>> violations = validator.validate(transferRequest);
 
@@ -24,7 +24,7 @@ class TransferRequestDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldFailToValidateWithNoAmount() {
-        var transferRequest = aTransferRequestWithAmount(null);
+        TransferRequestDTO transferRequest = aTransferRequestWithAmount(null);
 
         Set<ConstraintViolation<TransferRequestDTO>> violations = validator.validate(transferRequest);
 
@@ -33,7 +33,7 @@ class TransferRequestDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldFailToValidateWithNoReference() {
-        var transferRequest = aTransferRequestWithReference(null);
+        TransferRequestDTO transferRequest = aTransferRequestWithReference(null);
 
         Set<ConstraintViolation<TransferRequestDTO>> violations = validator.validate(transferRequest);
 

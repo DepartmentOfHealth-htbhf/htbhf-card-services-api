@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
-import uk.gov.dhsc.htbhf.card.model.CardDTO;
+import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
@@ -35,7 +35,7 @@ public class CardController {
     @ApiOperation("Create a new card")
     @ApiResponses({@ApiResponse(code = 201, message = "The response to the create card request")})
     @ResponseStatus(HttpStatus.CREATED)
-    public CardResponse createCard(@RequestBody @Valid @ApiParam("Details of the new card") CardDTO card) {
+    public CardResponse createCard(@RequestBody @Valid @ApiParam("Details of the new card request") CardRequestDTO cardRequest) {
         log.debug("Received new card request");
         return CardResponse.builder()
                 .cardAccountId(UUID.randomUUID().toString())
@@ -51,7 +51,7 @@ public class CardController {
     }
 
     @GetMapping("/{cardId}/balance")
-    @ApiOperation("Transfer funds to a card")
+    @ApiOperation("Get balance for a card")
     @ApiResponses({@ApiResponse(code = 200, message = "Card balance", response = CardBalance.class)})
     public CardBalance getBalance(@PathVariable("cardId") String cardId) {
         log.debug("Received request for card balance");
