@@ -20,7 +20,7 @@ paths:
     post:
       tags:
       - "card-controller"
-      summary: "Create a new card request"
+      summary: "Create a new card"
       operationId: "createCardUsingPOST"
       consumes:
       - "application/json"
@@ -49,7 +49,7 @@ paths:
     get:
       tags:
       - "card-controller"
-      summary: "Transfer funds to a card"
+      summary: "Get balance for a card"
       operationId: "getBalanceUsingGET"
       produces:
       - "*/*"
@@ -130,12 +130,16 @@ definitions:
   CardBalance:
     type: "object"
     properties:
-      availableBalance:
-        type: "number"
-        description: "Card balance including transactions that have not yet cleared"
-      ledgerBalance:
-        type: "number"
-        description: "Card balance only including transactions that have cleared"
+      availableBalanceInPence:
+        type: "integer"
+        format: "int32"
+        description: "Card balance (in pence) including transactions that have not\
+          \ yet cleared"
+      ledgerBalanceInPence:
+        type: "integer"
+        format: "int32"
+        description: "Card balance (in pence) only including transactions that have\
+          \ cleared"
     title: "CardBalance"
     description: "Cleared and uncleared balances of a card"
   CardRequestDTO:
@@ -183,9 +187,10 @@ definitions:
   TransferRequestDTO:
     type: "object"
     properties:
-      amount:
-        type: "number"
-        example: 12.4
+      amountInPence:
+        type: "integer"
+        format: "int32"
+        example: 1240
       reference:
         type: "string"
         example: "f8b96afa-7fd1-4200-9c1a-407531036b29"

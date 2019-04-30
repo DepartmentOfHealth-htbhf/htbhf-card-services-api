@@ -28,7 +28,7 @@ class TransferRequestDTOTest extends AbstractValidationTest {
 
         Set<ConstraintViolation<TransferRequestDTO>> violations = validator.validate(transferRequest);
 
-        assertThat(violations).hasSingleConstraintViolation("must not be null", "amount");
+        assertThat(violations).hasSingleConstraintViolation("must not be null", "amountInPence");
     }
 
     @Test

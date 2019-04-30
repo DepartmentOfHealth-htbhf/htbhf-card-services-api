@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -18,9 +17,9 @@ import javax.validation.constraints.NotNull;
 public class TransferRequestDTO {
 
     @NotNull
-    @JsonProperty("amount")
-    @ApiModelProperty(name = "amount", example = "12.40")
-    private BigDecimal amount;
+    @JsonProperty("amountInPence")
+    @ApiModelProperty(name = "amountInPence", example = "1240")
+    private Integer amountInPence;
 
     @NotNull
     @JsonProperty("reference")

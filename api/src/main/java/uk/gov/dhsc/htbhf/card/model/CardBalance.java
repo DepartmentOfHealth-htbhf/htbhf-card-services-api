@@ -8,19 +8,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.math.BigDecimal;
-
 @Data
 @Builder
 @AllArgsConstructor(onConstructor_ = {@JsonCreator})
 @ApiModel(description = "Cleared and uncleared balances of a card")
 public class CardBalance {
 
-    @JsonProperty("availableBalance")
-    @ApiModelProperty(name = "availableBalance", notes = "Card balance including transactions that have not yet cleared")
-    private BigDecimal availableBalance;
+    @JsonProperty("availableBalanceInPence")
+    @ApiModelProperty(name = "availableBalanceInPence", notes = "Card balance (in pence) including transactions that have not yet cleared")
+    private Integer availableBalanceInPence;
 
-    @JsonProperty("ledgerBalance")
-    @ApiModelProperty(name = "ledgerBalance", notes = "Card balance only including transactions that have cleared")
-    private BigDecimal ledgerBalance;
+    @JsonProperty("ledgerBalanceInPence")
+    @ApiModelProperty(name = "ledgerBalance", notes = "Card balance (in pence) only including transactions that have cleared")
+    private Integer ledgerBalanceInPence;
 }

@@ -70,7 +70,7 @@ class CardControllerTest {
 
         ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(TRANSFER_URL, card, ErrorResponse.class);
 
-        assertValidationErrorInResponse(response, "amount", "must not be null");
+        assertValidationErrorInResponse(response, "amountInPence", "must not be null");
     }
 
     @Test
