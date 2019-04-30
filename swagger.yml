@@ -20,7 +20,7 @@ paths:
     post:
       tags:
       - "card-controller"
-      summary: "Create a new card"
+      summary: "Create a new card request"
       operationId: "createCardUsingPOST"
       consumes:
       - "application/json"
@@ -28,11 +28,11 @@ paths:
       - "*/*"
       parameters:
       - in: "body"
-        name: "card"
-        description: "Details of the new card"
+        name: "cardRequest"
+        description: "Details of the new card request"
         required: false
         schema:
-          $ref: "#/definitions/CardDTO"
+          $ref: "#/definitions/CardRequestDTO"
       responses:
         201:
           description: "The response to the create card request"
@@ -138,7 +138,7 @@ definitions:
         description: "Card balance only including transactions that have cleared"
     title: "CardBalance"
     description: "Cleared and uncleared balances of a card"
-  CardDTO:
+  CardRequestDTO:
     type: "object"
     properties:
       address:
@@ -147,12 +147,12 @@ definitions:
       claimId:
         type: "string"
         example: "e2bb5fcb-da0f-4f2c-8795-853e99a91209"
-        description: "Unique id identifying new card request"
+        description: "Unique id of the claim requiring the new card"
       dateOfBirth:
         type: "string"
         format: "date"
         example: "1985-12-30"
-        description: "The date of birth, in the format YYYY-MM-DD"
+        description: "The date of birth of the card owner, in the format YYYY-MM-DD"
       email:
         type: "string"
         example: "homer@simpson.com"
@@ -169,8 +169,8 @@ definitions:
         type: "string"
         example: "07700900000"
         description: "Mobile number of the card owner"
-    title: "CardDTO"
-    description: "The card object"
+    title: "CardRequestDTO"
+    description: "The card request object"
   CardResponse:
     type: "object"
     properties:

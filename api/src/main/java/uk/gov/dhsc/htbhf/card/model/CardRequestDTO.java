@@ -16,8 +16,8 @@ import javax.validation.constraints.Past;
 @Data
 @Builder
 @AllArgsConstructor(onConstructor_ = {@JsonCreator})
-@ApiModel(description = "The card object")
-public class CardDTO {
+@ApiModel(description = "The card request object")
+public class CardRequestDTO {
 
     @NotNull
     @JsonProperty("firstName")
@@ -38,7 +38,7 @@ public class CardDTO {
     @NotNull
     @Past
     @JsonProperty("dateOfBirth")
-    @ApiModelProperty(notes = "The date of birth, in the format YYYY-MM-DD", example = "1985-12-30")
+    @ApiModelProperty(notes = "The date of birth of the card owner, in the format YYYY-MM-DD", example = "1985-12-30")
     private final LocalDate dateOfBirth;
 
     @JsonProperty("email")
@@ -51,6 +51,6 @@ public class CardDTO {
 
     @NotNull
     @JsonProperty("claimId")
-    @ApiModelProperty(notes = "Unique id identifying new card request", example = "e2bb5fcb-da0f-4f2c-8795-853e99a91209")
+    @ApiModelProperty(notes = "Unique id of the claim requiring the new card", example = "e2bb5fcb-da0f-4f2c-8795-853e99a91209")
     private String claimId;
 }

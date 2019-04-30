@@ -17,7 +17,7 @@ class AddressDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldValidateAddressSuccessfully() {
-        var address = aValidAddress();
+        AddressDTO address = aValidAddress();
 
         Set<ConstraintViolation<AddressDTO>> violations = validator.validate(address);
 
@@ -26,7 +26,7 @@ class AddressDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldFailToValidateAddressWithNoAddressLine1() {
-        var address = anAddressWithAddressLine1(null);
+        AddressDTO address = anAddressWithAddressLine1(null);
 
         Set<ConstraintViolation<AddressDTO>> violations = validator.validate(address);
 
@@ -35,7 +35,7 @@ class AddressDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldValidateAddressSuccessfullyWithNoAddressLine2() {
-        var address = anAddressWithAddressLine2(null);
+        AddressDTO address = anAddressWithAddressLine2(null);
 
         Set<ConstraintViolation<AddressDTO>> violations = validator.validate(address);
 
@@ -44,7 +44,7 @@ class AddressDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldFailToValidateAddressWithNoTownOrCity() {
-        var address = anAddressWithTownOrCity(null);
+        AddressDTO address = anAddressWithTownOrCity(null);
 
         Set<ConstraintViolation<AddressDTO>> violations = validator.validate(address);
 
@@ -53,7 +53,7 @@ class AddressDTOTest extends AbstractValidationTest {
 
     @Test
     void shouldFailToValidateAddressWithNoPostcode() {
-        var address = anAddressWithPostcode(null);
+        AddressDTO address = anAddressWithPostcode(null);
 
         Set<ConstraintViolation<AddressDTO>> violations = validator.validate(address);
 

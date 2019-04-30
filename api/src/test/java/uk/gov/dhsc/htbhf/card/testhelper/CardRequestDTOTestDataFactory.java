@@ -1,7 +1,7 @@
 package uk.gov.dhsc.htbhf.card.testhelper;
 
 import uk.gov.dhsc.htbhf.card.model.AddressDTO;
-import uk.gov.dhsc.htbhf.card.model.CardDTO;
+import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -13,56 +13,56 @@ import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_FIRST_NAME;
 import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_MOBILE;
 import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSON_LAST_NAME;
 
-public class CardDTOTestDataFactory {
+public class CardRequestDTOTestDataFactory {
 
-    public static CardDTO aValidCard() {
-        return defaultCardBuilder().build();
+    public static CardRequestDTO aValidCardRequest() {
+        return defaultCardRequestBuilder().build();
     }
 
-    public static CardDTO aCardWithAddress(AddressDTO address) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithAddress(AddressDTO address) {
+        return defaultCardRequestBuilder()
                 .address(address)
                 .build();
     }
 
-    public static CardDTO aCardWithFirstName(String firstName) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithFirstName(String firstName) {
+        return defaultCardRequestBuilder()
                 .firstName(firstName)
                 .build();
     }
 
-    public static CardDTO aCardWithLastName(String lastName) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithLastName(String lastName) {
+        return defaultCardRequestBuilder()
                 .lastName(lastName)
                 .build();
     }
 
-    public static CardDTO aCardWithDateOfBirth(LocalDate dateOfBirth) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithDateOfBirth(LocalDate dateOfBirth) {
+        return defaultCardRequestBuilder()
                 .dateOfBirth(dateOfBirth)
                 .build();
     }
 
-    public static CardDTO aCardWithClaimId(String claimId) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithClaimId(String claimId) {
+        return defaultCardRequestBuilder()
                 .claimId(claimId)
                 .build();
     }
 
-    public static CardDTO aCardWithEmail(String email) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithEmail(String email) {
+        return defaultCardRequestBuilder()
                 .email(email)
                 .build();
     }
 
-    public static CardDTO aCardWithMobile(String mobile) {
-        return defaultCardBuilder()
+    public static CardRequestDTO aCardRequestWithMobile(String mobile) {
+        return defaultCardRequestBuilder()
                 .mobile(mobile)
                 .build();
     }
 
-    private static CardDTO.CardDTOBuilder defaultCardBuilder() {
-        return CardDTO.builder()
+    private static CardRequestDTO.CardRequestDTOBuilder defaultCardRequestBuilder() {
+        return CardRequestDTO.builder()
                 .claimId(UUID.randomUUID().toString())
                 .firstName(HOMER_FIRST_NAME)
                 .lastName(SIMPSON_LAST_NAME)
