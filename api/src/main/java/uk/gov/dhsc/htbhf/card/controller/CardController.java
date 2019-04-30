@@ -1,26 +1,15 @@
 package uk.gov.dhsc.htbhf.card.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 import javax.validation.Valid;
 
@@ -56,8 +45,8 @@ public class CardController {
     public CardBalance getBalance(@PathVariable("cardId") String cardId) {
         log.debug("Received request for card balance");
         return CardBalance.builder()
-                .availableBalance(BigDecimal.TEN)
-                .ledgerBalance(BigDecimal.ONE)
+                .availableBalanceInPence(10)
+                .ledgerBalanceInPence(1)
                 .build();
     }
 

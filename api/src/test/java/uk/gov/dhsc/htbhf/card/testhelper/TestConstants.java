@@ -1,6 +1,5 @@
 package uk.gov.dhsc.htbhf.card.testhelper;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public final class TestConstants {
@@ -16,5 +15,5 @@ public final class TestConstants {
     public static final String SIMPSONS_TOWN = "Springfield";
     public static final String SIMPSONS_POSTCODE = "AA1 1AA";
 
-    public static final BigDecimal TRANSFER_AMOUNT = BigDecimal.valueOf(12.40);
+    public static final Integer TRANSFER_AMOUNT = 1240;
 }

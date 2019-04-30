@@ -2,7 +2,6 @@ package uk.gov.dhsc.htbhf.card.testhelper;
 
 import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.TRANSFER_AMOUNT;
@@ -13,9 +12,9 @@ public class TransferRequestDTOTestDataFactory {
         return buildDefaultRequest().build();
     }
 
-    public static TransferRequestDTO aTransferRequestWithAmount(BigDecimal amount) {
+    public static TransferRequestDTO aTransferRequestWithAmount(Integer amount) {
         return buildDefaultRequest()
-                .amount(amount)
+                .amountInPence(amount)
                 .build();
     }
 
@@ -27,7 +26,7 @@ public class TransferRequestDTOTestDataFactory {
 
     private static TransferRequestDTO.TransferRequestDTOBuilder buildDefaultRequest() {
         return TransferRequestDTO.builder()
-                .amount(TRANSFER_AMOUNT)
+                .amountInPence(TRANSFER_AMOUNT)
                 .reference(UUID.randomUUID().toString());
     }
 }
