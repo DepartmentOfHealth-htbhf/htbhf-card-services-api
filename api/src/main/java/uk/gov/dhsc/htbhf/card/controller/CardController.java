@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
+import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
 
 import java.util.UUID;
 import javax.validation.Valid;
@@ -31,12 +31,12 @@ public class CardController {
                 .build();
     }
 
-    @PostMapping("/{cardId}/transfer")
-    @ApiOperation("Transfer funds to a card")
+    @PostMapping("/{cardId}/deposit")
+    @ApiOperation("Deposit funds onto a card")
     @ApiResponses({@ApiResponse(code = 200, message = "Payment reference")})
-    public void transferFunds(@PathVariable("cardId") String cardId,
-                              @RequestBody @Valid @ApiParam("Balance transfer request information") TransferRequestDTO transferRequest) {
-        log.debug("Received new funds transfer request");
+    public void depositFunds(@PathVariable("cardId") String cardId,
+                             @RequestBody @Valid @ApiParam("Deposit funds request information") DepositFundsRequestDTO depositFundsRequest) {
+        log.debug("Received new deposit funds request");
     }
 
     @GetMapping("/{cardId}/balance")
@@ -46,7 +46,7 @@ public class CardController {
         log.debug("Received request for card balance");
         return CardBalance.builder()
                 .availableBalanceInPence(10)
-                .ledgerBalanceInPence(1)
+                .ledgerBalanceInPence(10)
                 .build();
     }
 

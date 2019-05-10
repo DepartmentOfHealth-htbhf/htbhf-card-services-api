@@ -7,11 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.aValidAddress;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_DATE_OF_BIRTH;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_EMAIL;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_FIRST_NAME;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.HOMER_MOBILE;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSON_LAST_NAME;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.*;
 
 public class CardRequestDTOTestDataFactory {
 
