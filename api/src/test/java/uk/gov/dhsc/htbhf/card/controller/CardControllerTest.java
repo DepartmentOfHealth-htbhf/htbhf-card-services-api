@@ -10,7 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.gov.dhsc.htbhf.card.model.CardBalance;
 import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.TransferRequestDTO;
+import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
 import uk.gov.dhsc.htbhf.errorhandler.ErrorResponse;
 
 import java.net.URI;
@@ -21,8 +21,8 @@ import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aCardRequestWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
-import static uk.gov.dhsc.htbhf.card.testhelper.TransferRequestDTOTestDataFactory.aTransferRequestWithAmount;
-import static uk.gov.dhsc.htbhf.card.testhelper.TransferRequestDTOTestDataFactory.aValidTransferRequest;
+import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aDepositFundsRequestWithAmount;
+import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aValidDepositFundsRequest;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -30,7 +30,7 @@ class CardControllerTest {
 
     private static final URI ENDPOINT = URI.create("/v1/cards");
     private static final String BALANCE_URL = ENDPOINT + "/1/balance";
-    private static final String TRANSFER_URL = ENDPOINT + "/1/transfer";
+    private static final String DEPOSIT_URL = ENDPOINT + "/1/deposit";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -56,19 +56,19 @@ class CardControllerTest {
     }
 
     @Test
-    void shouldTransferFundsToCard() {
-        TransferRequestDTO transferRequest = aValidTransferRequest();
+    void shouldDepositFundsToCard() {
+        DepositFundsRequestDTO depositFundsRequestDTO = aValidDepositFundsRequest();
 
-        ResponseEntity<Void> response = restTemplate.postForEntity(TRANSFER_URL, transferRequest, Void.class);
+        ResponseEntity<Void> response = restTemplate.postForEntity(DEPOSIT_URL, depositFundsRequestDTO, Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
     }
 
     @Test
-    void shouldReturnBadRequestWhenTransferringFundsWithNoAmount() {
-        TransferRequestDTO card = aTransferRequestWithAmount(null);
+    void shouldReturnBadRequestWhenDepositFundsWithNoAmount() {
+        DepositFundsRequestDTO depositFundsRequestDTO = aDepositFundsRequestWithAmount(null);
 
-        ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(TRANSFER_URL, card, ErrorResponse.class);
+        ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(DEPOSIT_URL, depositFundsRequestDTO, ErrorResponse.class);
 
         assertValidationErrorInResponse(response, "amountInPence", "must not be null");
     }
@@ -78,6 +78,9 @@ class CardControllerTest {
         ResponseEntity<CardBalance> response = restTemplate.getForEntity(BALANCE_URL, CardBalance.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
-        assertThat(response.getBody()).isNotNull();
+        CardBalance balance = response.getBody();
+        assertThat(balance).isNotNull();
+        assertThat(balance.getAvailableBalanceInPence()).isEqualTo(10);
+        assertThat(balance.getLedgerBalanceInPence()).isEqualTo(10);
     }
 }

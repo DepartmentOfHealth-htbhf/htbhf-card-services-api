@@ -71,12 +71,12 @@ paths:
         404:
           description: "Not Found"
       deprecated: false
-  /v1/cards/{cardId}/transfer:
+  /v1/cards/{cardId}/deposit:
     post:
       tags:
       - "card-controller"
-      summary: "Transfer funds to a card"
-      operationId: "transferFundsUsingPOST"
+      summary: "Deposit funds onto a card"
+      operationId: "depositFundsUsingPOST"
       consumes:
       - "application/json"
       produces:
@@ -88,11 +88,11 @@ paths:
         required: true
         type: "string"
       - in: "body"
-        name: "transferRequest"
-        description: "Balance transfer request information"
+        name: "depositFundsRequest"
+        description: "Deposit funds request information"
         required: false
         schema:
-          $ref: "#/definitions/TransferRequestDTO"
+          $ref: "#/definitions/DepositFundsRequestDTO"
       responses:
         200:
           description: "Payment reference"
@@ -184,7 +184,7 @@ definitions:
         description: "The id of the account for the new card"
     title: "CardResponse"
     description: "The response for making creating a new card"
-  TransferRequestDTO:
+  DepositFundsRequestDTO:
     type: "object"
     properties:
       amountInPence:
@@ -194,5 +194,5 @@ definitions:
       reference:
         type: "string"
         example: "f8b96afa-7fd1-4200-9c1a-407531036b29"
-    title: "TransferRequestDTO"
-    description: "Card fund transfer request object"
+    title: "DepositFundsRequestDTO"
+    description: "Card deposit funds request object"

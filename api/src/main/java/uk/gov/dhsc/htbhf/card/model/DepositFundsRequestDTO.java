@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
 @Data
 @Builder
 @AllArgsConstructor(onConstructor_ = {@JsonCreator})
-@ApiModel(description = "Card fund transfer request object")
-public class TransferRequestDTO {
+@ApiModel(description = "Card deposit funds request object")
+public class DepositFundsRequestDTO {
 
     @NotNull
     @JsonProperty("amountInPence")

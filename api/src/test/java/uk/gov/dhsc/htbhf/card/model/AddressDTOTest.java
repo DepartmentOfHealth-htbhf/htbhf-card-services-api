@@ -7,11 +7,7 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 
 import static uk.gov.dhsc.htbhf.assertions.ConstraintViolationAssert.assertThat;
-import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.aValidAddress;
-import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.anAddressWithAddressLine1;
-import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.anAddressWithAddressLine2;
-import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.anAddressWithPostcode;
-import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.anAddressWithTownOrCity;
+import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.*;
 
 class AddressDTOTest extends AbstractValidationTest {
 
