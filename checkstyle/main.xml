@@ -14,6 +14,6 @@
 </file>
 <file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/CardResponse.java">
 </file>
-<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/TransferRequestDTO.java">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/main/java/uk/gov/dhsc/htbhf/card/model/DepositFundsRequestDTO.java">
 </file>
 </checkstyle>

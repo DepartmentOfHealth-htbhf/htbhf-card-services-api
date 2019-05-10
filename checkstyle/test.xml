@@ -8,14 +8,14 @@
 </file>
 <file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/CardRequestDTOTest.java">
 </file>
-<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/TransferRequestDTOTest.java">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/model/DepositFundsRequestDTOTest.java">
 </file>
 <file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/AddressDTOTestDataFactory.java">
 </file>
 <file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/CardRequestDTOTestDataFactory.java">
 </file>
-<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/TestConstants.java">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/DepositFundsRequestDTOTestDataFactory.java">
 </file>
-<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/TransferRequestDTOTestDataFactory.java">
+<file name="/home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api/src/test/java/uk/gov/dhsc/htbhf/card/testhelper/TestConstants.java">
 </file>
 </checkstyle>
