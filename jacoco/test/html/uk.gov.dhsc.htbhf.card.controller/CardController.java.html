@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import uk.gov.dhsc.htbhf.card.model.*;
 import uk.gov.dhsc.htbhf.card.service.CardService;
 
-import java.util.UUID;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(&quot;v1/cards&quot;)
 @AllArgsConstructor
-<span class="fc" id="L17">@Slf4j</span>
+<span class="fc" id="L16">@Slf4j</span>
 @Api
 public class CardController {
 
@@ -25,10 +24,8 @@ public class CardController {
     @ApiResponses({@ApiResponse(code = 201, message = &quot;The response to the create card request&quot;)})
     @ResponseStatus(HttpStatus.CREATED)
     public CardResponse createCard(@RequestBody @Valid @ApiParam(&quot;Details of the new card request&quot;) CardRequestDTO cardRequest) {
-<span class="fc" id="L28">        log.debug(&quot;Received new card request&quot;);</span>
-<span class="fc" id="L29">        return CardResponse.builder()</span>
-<span class="fc" id="L30">                .cardAccountId(UUID.randomUUID().toString())</span>
-<span class="fc" id="L31">                .build();</span>
+<span class="fc" id="L27">        log.debug(&quot;Received new card request&quot;);</span>
+<span class="fc" id="L28">        return cardService.createCard(cardRequest);</span>
     }
 
     @PostMapping(&quot;/{cardId}/deposit&quot;)
@@ -36,19 +33,19 @@ public class CardController {
     @ApiResponses({@ApiResponse(code = 200, message = &quot;Payment reference&quot;)})
     public DepositFundsResponse depositFunds(@PathVariable(&quot;cardId&quot;) String cardId,
                                              @RequestBody @Valid @ApiParam(&quot;Deposit funds request information&quot;) DepositFundsRequestDTO depositFundsRequest) {
-<span class="fc" id="L39">        log.debug(&quot;Received new deposit funds request&quot;);</span>
-<span class="fc" id="L40">        return cardService.depositFunds(cardId, depositFundsRequest);</span>
+<span class="fc" id="L36">        log.debug(&quot;Received new deposit funds request&quot;);</span>
+<span class="fc" id="L37">        return cardService.depositFunds(cardId, depositFundsRequest);</span>
     }
 
     @GetMapping(&quot;/{cardId}/balance&quot;)
     @ApiOperation(&quot;Get balance for a card&quot;)
     @ApiResponses({@ApiResponse(code = 200, message = &quot;Card balance&quot;, response = CardBalance.class)})
     public CardBalance getBalance(@PathVariable(&quot;cardId&quot;) String cardId) {
-<span class="fc" id="L47">        log.debug(&quot;Received request for card balance&quot;);</span>
-<span class="fc" id="L48">        return CardBalance.builder()</span>
-<span class="fc" id="L49">                .availableBalanceInPence(10)</span>
-<span class="fc" id="L50">                .ledgerBalanceInPence(10)</span>
-<span class="fc" id="L51">                .build();</span>
+<span class="fc" id="L44">        log.debug(&quot;Received request for card balance&quot;);</span>
+<span class="fc" id="L45">        return CardBalance.builder()</span>
+<span class="fc" id="L46">                .availableBalanceInPence(10)</span>
+<span class="fc" id="L47">                .ledgerBalanceInPence(10)</span>
+<span class="fc" id="L48">                .build();</span>
     }
 
 

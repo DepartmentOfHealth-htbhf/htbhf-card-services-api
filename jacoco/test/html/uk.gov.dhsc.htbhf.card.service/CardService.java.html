@@ -5,11 +5,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
+import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.DepositFundsResponse;
 
 @Service
-<span class="fc" id="L12">@Slf4j</span>
+<span class="fc" id="L14">@Slf4j</span>
 public class CardService {
 
     private static final String ENDPOINT = &quot;/v1/cards&quot;;
@@ -17,10 +19,21 @@ public class CardService {
     private final RestTemplate restTemplate;
 
     public CardService(@Value(&quot;${card-service.base-uri}&quot;) String baseUri,
-<span class="fc" id="L20">                       RestTemplate restTemplate) {</span>
-<span class="fc" id="L21">        this.uri = baseUri + ENDPOINT;</span>
-<span class="fc" id="L22">        this.restTemplate = restTemplate;</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L22">                       RestTemplate restTemplate) {</span>
+<span class="fc" id="L23">        this.uri = baseUri + ENDPOINT;</span>
+<span class="fc" id="L24">        this.restTemplate = restTemplate;</span>
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Creates a card for the given claimant detailed in the request object.
+     *
+     * @param cardRequest The request
+     * @return The card response
+     */
+    public CardResponse createCard(CardRequestDTO cardRequest) {
+<span class="fc" id="L34">        ResponseEntity&lt;CardResponse&gt; response = restTemplate.postForEntity(uri, cardRequest, CardResponse.class);</span>
+<span class="fc" id="L35">        return response.getBody();</span>
+    }
 
     /**
      * Call through to the card service provider to deposit funds to the card.
@@ -30,13 +43,13 @@ public class CardService {
      * @return The response
      */
     public DepositFundsResponse depositFunds(String cardId, DepositFundsRequestDTO depositFundsRequest) {
-<span class="fc" id="L33">        String cardUrl = buildCardUrl(cardId);</span>
-<span class="fc" id="L34">        ResponseEntity&lt;DepositFundsResponse&gt; response = restTemplate.postForEntity(cardUrl, depositFundsRequest, DepositFundsResponse.class);</span>
-<span class="fc" id="L35">        return response.getBody();</span>
+<span class="fc" id="L46">        String cardUrl = buildCardUrl(cardId);</span>
+<span class="fc" id="L47">        ResponseEntity&lt;DepositFundsResponse&gt; response = restTemplate.postForEntity(cardUrl, depositFundsRequest, DepositFundsResponse.class);</span>
+<span class="fc" id="L48">        return response.getBody();</span>
     }
 
     private String buildCardUrl(String cardId) {
-<span class="fc" id="L39">        return uri + &quot;/&quot; + cardId + &quot;/deposit&quot;;</span>
+<span class="fc" id="L52">        return uri + &quot;/&quot; + cardId + &quot;/deposit&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
