@@ -1,27 +1,23 @@
-package uk.gov.dhsc.htbhf.card.controller;
+package uk.gov.dhsc.htbhf.card;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import uk.gov.dhsc.htbhf.card.model.CardBalance;
-import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
-import uk.gov.dhsc.htbhf.card.service.CardService;
+import org.springframework.web.client.RestTemplate;
+import uk.gov.dhsc.htbhf.card.model.*;
 import uk.gov.dhsc.htbhf.errorhandler.ErrorResponse;
 
 import java.net.URI;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
@@ -30,23 +26,25 @@ import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aV
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aDepositFundsRequestWithAmount;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aValidDepositFundsRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsResponseTestDataFactory.aValidDepositFundsResponse;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.DEPOSIT_REFERENCE_ID;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CardControllerTest {
+public class CardServicesIntegrationTest {
 
     private static final URI ENDPOINT = URI.create("/v1/cards");
     private static final String BALANCE_URL = ENDPOINT + "/1/balance";
     private static final String DEPOSIT_URL = ENDPOINT + "/1/deposit";
 
+    private static final String CARD_SERVICES_DEPOSIT_URL = "http://localhost:8120/v1/cards/1/deposit";
+
     @Autowired
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private CardService cardService;
+    private RestTemplate restTemplateWithIdHeaders;
 
     @Test
-    void shouldCreateCard() {
+    void shouldSuccessfullyCreateCard() {
         CardRequestDTO cardRequest = aValidCardRequest();
 
         ResponseEntity<CardResponse> response = restTemplate.postForEntity(ENDPOINT, cardRequest, CardResponse.class);
@@ -54,42 +52,44 @@ class CardControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(CREATED);
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().getCardAccountId()).isNotNull();
-        verifyZeroInteractions(cardService);
     }
 
     @Test
-    void shouldReturnBadRequestWhenCreatingCardWithAddressMissing() {
+    void shouldReturnBadRequestWithInvalidCardRequest() {
         CardRequestDTO cardRequest = aCardRequestWithAddress(null);
 
         ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(ENDPOINT, cardRequest, ErrorResponse.class);
 
         assertValidationErrorInResponse(response, "address", "must not be null");
-        verifyZeroInteractions(cardService);
     }
 
     @Test
-    void shouldDepositFundsToCard() {
+    void shouldSuccessfullyDepositFundsToCard() {
         DepositFundsRequestDTO depositFundsRequestDTO = aValidDepositFundsRequest();
-        given(cardService.depositFunds(any(), any())).willReturn(aValidDepositFundsResponse());
+        DepositFundsResponse depositFundsResponse = aValidDepositFundsResponse();
+        ResponseEntity<DepositFundsResponse> depositFundsResponseEntity = new ResponseEntity<>(depositFundsResponse, OK);
+        given(restTemplateWithIdHeaders.postForEntity(anyString(), any(), eq(DepositFundsResponse.class))).willReturn(depositFundsResponseEntity);
 
-        ResponseEntity<Void> response = restTemplate.postForEntity(DEPOSIT_URL, depositFundsRequestDTO, Void.class);
+        ResponseEntity<DepositFundsResponse> response = restTemplate.postForEntity(DEPOSIT_URL, depositFundsRequestDTO, DepositFundsResponse.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
-        verify(cardService).depositFunds("1", depositFundsRequestDTO);
+        DepositFundsResponse responseBody = response.getBody();
+        assertThat(responseBody).isNotNull();
+        assertThat(responseBody.getReferenceId()).isEqualTo(DEPOSIT_REFERENCE_ID);
+        verify(restTemplateWithIdHeaders).postForEntity(CARD_SERVICES_DEPOSIT_URL, depositFundsRequestDTO, DepositFundsResponse.class);
     }
 
     @Test
-    void shouldReturnBadRequestWhenDepositFundsWithNoAmount() {
+    void shouldReturnBadRequestWithInvalidDepositFundsRequest() {
         DepositFundsRequestDTO depositFundsRequestDTO = aDepositFundsRequestWithAmount(null);
 
         ResponseEntity<ErrorResponse> response = restTemplate.postForEntity(DEPOSIT_URL, depositFundsRequestDTO, ErrorResponse.class);
 
         assertValidationErrorInResponse(response, "amountInPence", "must not be null");
-        verifyZeroInteractions(cardService);
     }
 
     @Test
-    void shouldGetCardBalance() {
+    void shouldSuccessfullyGetCardBalance() {
         ResponseEntity<CardBalance> response = restTemplate.getForEntity(BALANCE_URL, CardBalance.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
@@ -97,6 +97,6 @@ class CardControllerTest {
         assertThat(balance).isNotNull();
         assertThat(balance.getAvailableBalanceInPence()).isEqualTo(10);
         assertThat(balance.getLedgerBalanceInPence()).isEqualTo(10);
-        verifyZeroInteractions(cardService);
     }
+
 }

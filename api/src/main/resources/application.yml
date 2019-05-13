@@ -15,3 +15,6 @@ logging:
 
 server:
   port: 8140
+
+card-service:
+  base-uri: ${CARD_SERVICES_API_URI:http://localhost:8120}
