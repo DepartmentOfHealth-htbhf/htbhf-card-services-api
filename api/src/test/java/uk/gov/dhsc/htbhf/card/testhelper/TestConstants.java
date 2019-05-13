@@ -18,4 +18,5 @@ public final class TestConstants {
     public static final Integer TRANSFER_AMOUNT = 1240;
 
     public static final String DEPOSIT_REFERENCE_ID = "newDeposit";
+    public static final String CARD_ID = "9-sdjfhb-skdjhf";
 }

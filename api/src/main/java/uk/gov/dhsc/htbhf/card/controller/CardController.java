@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import uk.gov.dhsc.htbhf.card.model.*;
 import uk.gov.dhsc.htbhf.card.service.CardService;
 
-import java.util.UUID;
 import javax.validation.Valid;
 
 @RestController
@@ -26,9 +25,7 @@ public class CardController {
     @ResponseStatus(HttpStatus.CREATED)
     public CardResponse createCard(@RequestBody @Valid @ApiParam("Details of the new card request") CardRequestDTO cardRequest) {
         log.debug("Received new card request");
-        return CardResponse.builder()
-                .cardAccountId(UUID.randomUUID().toString())
-                .build();
+        return cardService.createCard(cardRequest);
     }
 
     @PostMapping("/{cardId}/deposit")
