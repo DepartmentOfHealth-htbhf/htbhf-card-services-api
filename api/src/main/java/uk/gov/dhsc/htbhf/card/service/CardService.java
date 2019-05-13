@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
+import uk.gov.dhsc.htbhf.card.model.CardResponse;
 import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
 import uk.gov.dhsc.htbhf.card.model.DepositFundsResponse;
 
@@ -20,6 +22,17 @@ public class CardService {
                        RestTemplate restTemplate) {
         this.uri = baseUri + ENDPOINT;
         this.restTemplate = restTemplate;
+    }
+
+    /**
+     * Creates a card for the given claimant detailed in the request object.
+     *
+     * @param cardRequest The request
+     * @return The card response
+     */
+    public CardResponse createCard(CardRequestDTO cardRequest) {
+        ResponseEntity<CardResponse> response = restTemplate.postForEntity(uri, cardRequest, CardResponse.class);
+        return response.getBody();
     }
 
     /**

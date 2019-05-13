@@ -23,9 +23,11 @@ import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aCardRequestWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardResponseTestDataFactory.aValidCardResponse;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aDepositFundsRequestWithAmount;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aValidDepositFundsRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsResponseTestDataFactory.aValidDepositFundsResponse;
+import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.CARD_ID;
 import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.DEPOSIT_REFERENCE_ID;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -35,7 +37,8 @@ public class CardServicesIntegrationTest {
     private static final String BALANCE_URL = ENDPOINT + "/1/balance";
     private static final String DEPOSIT_URL = ENDPOINT + "/1/deposit";
 
-    private static final String CARD_SERVICES_DEPOSIT_URL = "http://localhost:8120/v1/cards/1/deposit";
+    private static final String CARD_SERVICES_URL = "http://localhost:8120/v1/cards";
+    private static final String CARD_SERVICES_DEPOSIT_URL = CARD_SERVICES_URL + "/1/deposit";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -46,12 +49,16 @@ public class CardServicesIntegrationTest {
     @Test
     void shouldSuccessfullyCreateCard() {
         CardRequestDTO cardRequest = aValidCardRequest();
+        ResponseEntity<CardResponse> cardResponseResponseEntity = new ResponseEntity<>(aValidCardResponse(), OK);
+        given(restTemplateWithIdHeaders.postForEntity(anyString(), any(), eq(CardResponse.class))).willReturn(cardResponseResponseEntity);
 
         ResponseEntity<CardResponse> response = restTemplate.postForEntity(ENDPOINT, cardRequest, CardResponse.class);
 
         assertThat(response.getStatusCode()).isEqualTo(CREATED);
-        assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().getCardAccountId()).isNotNull();
+        CardResponse cardResponse = response.getBody();
+        assertThat(cardResponse).isNotNull();
+        assertThat(cardResponse.getCardAccountId()).isEqualTo(CARD_ID);
+        verify(restTemplateWithIdHeaders).postForEntity(CARD_SERVICES_URL, cardRequest, CardResponse.class);
     }
 
     @Test
