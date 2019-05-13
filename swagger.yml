@@ -96,6 +96,8 @@ paths:
       responses:
         200:
           description: "Payment reference"
+          schema:
+            $ref: "#/definitions/DepositFundsResponse"
         201:
           description: "Created"
         401:
@@ -196,3 +198,9 @@ definitions:
         example: "f8b96afa-7fd1-4200-9c1a-407531036b29"
     title: "DepositFundsRequestDTO"
     description: "Card deposit funds request object"
+  DepositFundsResponse:
+    type: "object"
+    properties:
+      referenceId:
+        type: "string"
+    title: "DepositFundsResponse"

@@ -16,4 +16,6 @@ public final class TestConstants {
     public static final String SIMPSONS_POSTCODE = "AA1 1AA";
 
     public static final Integer TRANSFER_AMOUNT = 1240;
+
+    public static final String DEPOSIT_REFERENCE_ID = "newDeposit";
 }
