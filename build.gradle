@@ -5,7 +5,6 @@ buildscript {
         postgresVersion = '10.5'
         flywayVersion = '5.2.4'
         springBootVersion = '2.1.2.RELEASE'
-        jacksonVersion = '2.9.9'
     }
 
     repositories {
