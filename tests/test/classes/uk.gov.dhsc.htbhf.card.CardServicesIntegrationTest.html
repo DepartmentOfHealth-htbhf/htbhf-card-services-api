@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.472s</div>
+<div class="counter">0.458s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">shouldReturnBadRequestWithInvalidCardRequest()</td>
-<td class="success">0.040s</td>
+<td class="success">0.028s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldReturnBadRequestWithInvalidDepositFundsRequest()</td>
-<td class="success">0.138s</td>
+<td class="success">0.153s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSuccessfullyCreateCard()</td>
-<td class="success">0.218s</td>
+<td class="success">0.217s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSuccessfullyDepositFundsToCard()</td>
-<td class="success">0.035s</td>
+<td class="success">0.036s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSuccessfullyGetCardBalance()</td>
-<td class="success">0.041s</td>
+<td class="success">0.024s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,12 +107,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:53:29.216 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest], using SpringBootContextLoader
-14:53:29.219 [Test worker] [][] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-14:53:29.221 [Test worker] [][] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: CardServicesIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:53:29.275 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest
-14:53:29.278 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-14:53:29.281 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@bfc7c40, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3d0c6d16, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@79e5b921, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@50abdfa6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@385db78f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6667194f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@329f9813, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3cc72709, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@69730ed1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3700cfd1]
+<pre>10:58:44.630 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest], using SpringBootContextLoader
+10:58:44.632 [Test worker] [][] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:58:44.634 [Test worker] [][] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: CardServicesIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:58:44.660 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest
+10:58:44.662 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+10:58:44.665 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@79e5b921, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50abdfa6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@385db78f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6667194f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@329f9813, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3cc72709, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@69730ed1, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3700cfd1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@79918622, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7c6b1976]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -122,32 +122,32 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.3.RELEASE)
 
-14:53:29.353 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Starting CardServicesIntegrationTest on travis-job-82d5cf3b-8e19-4d58-94d7-4ecd5c3f59aa with PID 5511 (started by travis in /home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api)
-14:53:29.355 [Test worker] [][] DEBUG u.g.d.h.c.CardServicesIntegrationTest - Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
-14:53:29.357 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - No active profile set, falling back to default profiles: default
-14:53:30.495 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
-14:53:30.500 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-14:53:30.502 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
-14:53:30.529 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-14:53:30.532 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1172 ms
-14:53:31.262 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
-14:53:31.753 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
-14:53:31.975 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity&lt;springfox.documentation.spring.web.json.Json&gt; springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-14:53:32.175 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-14:53:32.467 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-14:53:32.472 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-14:53:32.492 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-14:53:32.622 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 46871 (http) with context path ''
-14:53:32.624 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Started CardServicesIntegrationTest in 3.335 seconds (JVM running for 24.359)
-14:53:32.639 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-05-20T14:53:32.634916&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
-14:53:32.724 [http-nio-auto-2-exec-1] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-14:53:32.725 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-14:53:32.762 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 37 ms
-14:53:32.831 [http-nio-auto-2-exec-1] [][30d37400-5b7d-4226-8af2-5975766f27c4] DEBUG u.g.d.h.c.controller.CardController - Received new card request
-14:53:32.955 [http-nio-auto-2-exec-2] [][1c12323e-cfb7-4198-94ce-f8c5359b661d] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
-14:53:33.041 [http-nio-auto-2-exec-3] [][d2b98a61-05b3-47d2-be81-289010c690a1] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
-14:53:33.081 [http-nio-auto-2-exec-4] [][b0286c9d-828e-4149-95b6-331400c2f412] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
-14:53:33.120 [http-nio-auto-2-exec-5] [][b276c8bb-b2fc-4aa3-95cd-9439f25e4e03] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
+10:58:44.708 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Starting CardServicesIntegrationTest on travis-job-0b0ef927-80e8-490c-9171-377120699fd5 with PID 5510 (started by travis in /home/travis/build/DepartmentOfHealth-htbhf/htbhf-card-services-api/api)
+10:58:44.709 [Test worker] [][] DEBUG u.g.d.h.c.CardServicesIntegrationTest - Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+10:58:44.710 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - No active profile set, falling back to default profiles: default
+10:58:45.746 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+10:58:45.750 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:58:45.751 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+10:58:45.771 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:58:45.772 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1059 ms
+10:58:46.389 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
+10:58:46.937 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+10:58:47.229 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity&lt;springfox.documentation.spring.web.json.Json&gt; springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+10:58:47.485 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+10:58:47.787 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+10:58:47.789 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+10:58:47.813 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+10:58:47.965 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 37542 (http) with context path ''
+10:58:47.966 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Started CardServicesIntegrationTest in 3.296 seconds (JVM running for 24.651)
+10:58:47.984 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-05-21T10:58:47.974925&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
+10:58:48.075 [http-nio-auto-2-exec-1] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:58:48.075 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10:58:48.091 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+10:58:48.181 [http-nio-auto-2-exec-1] [][00d1e513-3533-4bcd-a5c9-982fb4f765cb] DEBUG u.g.d.h.c.controller.CardController - Received new card request
+10:58:48.307 [http-nio-auto-2-exec-2] [][aa330102-a706-464d-a1b8-07fdb50078c0] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
+10:58:48.385 [http-nio-auto-2-exec-3] [][8be0019d-4e71-4735-8f92-ddadf62f7bb3] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
+10:58:48.413 [http-nio-auto-2-exec-4] [][a3155f23-d26b-46b6-ba7e-657ec3305f64] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
+10:58:48.449 [http-nio-auto-2-exec-5] [][66c12cff-a251-4952-8ab7-14b21d34baf5] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
 </pre>
 </span>
 </div>
@@ -159,7 +159,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.2.1</a> at May 20, 2019, 2:53:36 PM</p>
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at May 21, 2019, 10:58:52 AM</p>
 </div>
 </div>
 </body>
