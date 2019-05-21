@@ -17,4 +17,4 @@ server:
   port: 8140
 
 card-service:
-  base-uri: ${CARD_SERVICES_API_URI:http://localhost:8120}
+  base-uri: ${vcap.services.variable-service.credentials.card-services-api-uri:http://localhost:8120}
