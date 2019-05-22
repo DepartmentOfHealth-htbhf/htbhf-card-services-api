@@ -42,10 +42,7 @@ public class CardController {
     @ApiResponses({@ApiResponse(code = 200, message = "Card balance", response = CardBalance.class)})
     public CardBalance getBalance(@PathVariable("cardId") String cardId) {
         log.debug("Received request for card balance");
-        return CardBalance.builder()
-                .availableBalanceInPence(10)
-                .ledgerBalanceInPence(10)
-                .build();
+        return cardService.getBalance(cardId);
     }
 
 

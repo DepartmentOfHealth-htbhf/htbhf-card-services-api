@@ -6,10 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-import uk.gov.dhsc.htbhf.card.model.CardBalance;
-import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
+import uk.gov.dhsc.htbhf.card.model.*;
 import uk.gov.dhsc.htbhf.card.service.CardService;
 import uk.gov.dhsc.htbhf.errorhandler.ErrorResponse;
 
@@ -23,6 +20,7 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardBalanceTestDataFactory.aValidCardBalance;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aCardRequestWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardResponseTestDataFactory.aValidCardResponse;
@@ -89,13 +87,14 @@ class CardControllerTest {
 
     @Test
     void shouldGetCardBalance() {
+        CardBalance cardBalance = aValidCardBalance();
+        given(cardService.getBalance(any())).willReturn(cardBalance);
+
         ResponseEntity<CardBalance> response = restTemplate.getForEntity(BALANCE_URL, CardBalance.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
         CardBalance balance = response.getBody();
-        assertThat(balance).isNotNull();
-        assertThat(balance.getAvailableBalanceInPence()).isEqualTo(10);
-        assertThat(balance.getLedgerBalanceInPence()).isEqualTo(10);
-        verifyZeroInteractions(cardService);
+        assertThat(balance).isEqualTo(cardBalance);
+        verify(cardService).getBalance("1");
     }
 }
