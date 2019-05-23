@@ -5,24 +5,23 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsResponse;
+import uk.gov.dhsc.htbhf.card.model.*;
 
 @Service
-<span class="fc" id="L14">@Slf4j</span>
+<span class="fc" id="L11">@Slf4j</span>
 public class CardService {
 
     private static final String ENDPOINT = &quot;/v1/cards&quot;;
+    private static final String BALANCE_ENDPOINT = &quot;/balance&quot;;
+    private static final String DEPOSIT_ENDPOINT = &quot;/deposit&quot;;
     private final String uri;
     private final RestTemplate restTemplate;
 
     public CardService(@Value(&quot;${card-service.base-uri}&quot;) String baseUri,
-<span class="fc" id="L22">                       RestTemplate restTemplate) {</span>
-<span class="fc" id="L23">        this.uri = baseUri + ENDPOINT;</span>
-<span class="fc" id="L24">        this.restTemplate = restTemplate;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L21">                       RestTemplate restTemplate) {</span>
+<span class="fc" id="L22">        this.uri = baseUri + ENDPOINT;</span>
+<span class="fc" id="L23">        this.restTemplate = restTemplate;</span>
+<span class="fc" id="L24">    }</span>
 
     /**
      * Creates a card for the given claimant detailed in the request object.
@@ -31,8 +30,8 @@ public class CardService {
      * @return The card response
      */
     public CardResponse createCard(CardRequestDTO cardRequest) {
-<span class="fc" id="L34">        ResponseEntity&lt;CardResponse&gt; response = restTemplate.postForEntity(uri, cardRequest, CardResponse.class);</span>
-<span class="fc" id="L35">        return response.getBody();</span>
+<span class="fc" id="L33">        ResponseEntity&lt;CardResponse&gt; response = restTemplate.postForEntity(uri, cardRequest, CardResponse.class);</span>
+<span class="fc" id="L34">        return response.getBody();</span>
     }
 
     /**
@@ -43,13 +42,25 @@ public class CardService {
      * @return The response
      */
     public DepositFundsResponse depositFunds(String cardId, DepositFundsRequestDTO depositFundsRequest) {
-<span class="fc" id="L46">        String cardUrl = buildCardUrl(cardId);</span>
-<span class="fc" id="L47">        ResponseEntity&lt;DepositFundsResponse&gt; response = restTemplate.postForEntity(cardUrl, depositFundsRequest, DepositFundsResponse.class);</span>
-<span class="fc" id="L48">        return response.getBody();</span>
+<span class="fc" id="L45">        String depositUrl = buildUrl(cardId, DEPOSIT_ENDPOINT);</span>
+<span class="fc" id="L46">        ResponseEntity&lt;DepositFundsResponse&gt; response = restTemplate.postForEntity(depositUrl, depositFundsRequest, DepositFundsResponse.class);</span>
+<span class="fc" id="L47">        return response.getBody();</span>
     }
 
-    private String buildCardUrl(String cardId) {
-<span class="fc" id="L52">        return uri + &quot;/&quot; + cardId + &quot;/deposit&quot;;</span>
+    /**
+     * Call through to the card service provider to get the card's balance.
+     *
+     * @param cardId The card id
+     * @return The balance response
+     */
+    public CardBalance getBalance(String cardId) {
+<span class="fc" id="L57">        String balanceUrl = buildUrl(cardId, BALANCE_ENDPOINT);</span>
+<span class="fc" id="L58">        ResponseEntity&lt;CardBalance&gt; response = restTemplate.getForEntity(balanceUrl, CardBalance.class);</span>
+<span class="fc" id="L59">        return response.getBody();</span>
+    }
+
+    private String buildUrl(String cardId, String endpoint) {
+<span class="fc" id="L63">        return uri + &quot;/&quot; + cardId + endpoint;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
