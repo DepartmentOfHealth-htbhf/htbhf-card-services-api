@@ -21,6 +21,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardBalanceTestDataFactory.aValidCardBalance;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aCardRequestWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardResponseTestDataFactory.aValidCardResponse;
@@ -97,13 +98,15 @@ public class CardServicesIntegrationTest {
 
     @Test
     void shouldSuccessfullyGetCardBalance() {
+        CardBalance cardBalance = aValidCardBalance();
+        given(restTemplateWithIdHeaders.getForEntity(anyString(), any())).willReturn(new ResponseEntity<>(cardBalance, OK));
+
+
         ResponseEntity<CardBalance> response = restTemplate.getForEntity(BALANCE_URL, CardBalance.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
         CardBalance balance = response.getBody();
-        assertThat(balance).isNotNull();
-        assertThat(balance.getAvailableBalanceInPence()).isEqualTo(10);
-        assertThat(balance.getLedgerBalanceInPence()).isEqualTo(10);
+        assertThat(balance).isEqualTo(cardBalance);
     }
 
 }

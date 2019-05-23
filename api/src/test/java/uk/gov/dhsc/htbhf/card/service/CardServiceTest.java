@@ -8,10 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsResponse;
+import uk.gov.dhsc.htbhf.card.model.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -19,6 +16,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardBalanceTestDataFactory.aValidCardBalance;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardResponseTestDataFactory.aValidCardResponse;
 import static uk.gov.dhsc.htbhf.card.testhelper.DepositFundsRequestDTOTestDataFactory.aValidDepositFundsRequest;
@@ -46,7 +44,7 @@ class CardServiceTest {
     void shouldSuccessfullyDepositFunds() {
         //Given
         String cardId = "123456";
-        String cardUrl = buildCardUrl(cardId);
+        String cardUrl = buildUrl(cardId, "/deposit");
         DepositFundsRequestDTO request = aValidDepositFundsRequest();
         given(restTemplate.postForEntity(cardUrl, request, DepositFundsResponse.class))
                 .willReturn(new ResponseEntity<>(aValidDepositFundsResponse(), HttpStatus.OK));
@@ -76,8 +74,23 @@ class CardServiceTest {
         verify(restTemplate).postForEntity(CARDS_URI, request, CardResponse.class);
     }
 
+    @Test
+    void shouldSuccessfullyGetBalance() {
+        //Given
+        String cardId = "123465";
+        String balanceUrl = buildUrl(cardId, "/balance");
+        CardBalance cardBalance = aValidCardBalance();
+        given(restTemplate.getForEntity(anyString(), any())).willReturn(new ResponseEntity<>(cardBalance, HttpStatus.OK));
 
-    private String buildCardUrl(String cardId) {
-        return CARDS_URI + "/" + cardId + "/deposit";
+        //When
+        CardBalance result = cardService.getBalance(cardId);
+
+        //Then
+        assertThat(result).isEqualTo(cardBalance);
+        verify(restTemplate).getForEntity(balanceUrl, CardBalance.class);
+    }
+
+    private String buildUrl(String cardId, String endpoint) {
+        return CARDS_URI + "/" + cardId + endpoint;
     }
 }
