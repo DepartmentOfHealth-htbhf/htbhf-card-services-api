@@ -24,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static uk.gov.dhsc.htbhf.assertions.IntegrationTestAssertions.assertValidationErrorInResponse;
+import static uk.gov.dhsc.htbhf.card.testhelper.CardBalanceTestDataFactory.aValidCardBalance;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aCardRequestWithAddress;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardRequestDTOTestDataFactory.aValidCardRequest;
 import static uk.gov.dhsc.htbhf.card.testhelper.CardResponseTestDataFactory.aValidCardResponse;
@@ -103,14 +104,16 @@ class CardServicesIntegrationTest {
     }
 
     @Test
-    void shouldSuccessfullyGetCardBalance() {
+    void shouldSuccessfullyGetCardBalance() throws JsonProcessingException {
+        CardBalance cardBalance = aValidCardBalance();
+        stubGetBalanceEndpointWithSuccessfulResponse(cardBalance);
+
         ResponseEntity<CardBalance> response = restTemplate.getForEntity(BALANCE_URL, CardBalance.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
         CardBalance balance = response.getBody();
-        assertThat(balance).isNotNull();
-        assertThat(balance.getAvailableBalanceInPence()).isEqualTo(10);
-        assertThat(balance.getLedgerBalanceInPence()).isEqualTo(10);
+        assertThat(balance).isEqualTo(cardBalance);
+        verifyGetToGetBalanceEndpoint();
     }
 
     private void stubNewCardEndpointWithSuccessfulResponse(CardResponse cardResponse) throws JsonProcessingException {
@@ -123,11 +126,20 @@ class CardServicesIntegrationTest {
         stubFor(post(urlEqualTo(DEPOSIT_URL)).willReturn(okJson(json)));
     }
 
+    private void stubGetBalanceEndpointWithSuccessfulResponse(CardBalance cardBal) throws JsonProcessingException {
+        String json = objectMapper.writeValueAsString(cardBal);
+        stubFor(get(urlEqualTo(BALANCE_URL)).willReturn(okJson(json)));
+    }
+
     private void verifyPostToNewCardEndpoint() {
         verify(exactly(1), postRequestedFor(urlEqualTo(CARD_SERVICES_URL)));
     }
 
     private void verifyPostToDepositFundsEndpoint() {
         verify(exactly(1), postRequestedFor(urlEqualTo(DEPOSIT_URL)));
+    }
+
+    private void verifyGetToGetBalanceEndpoint() {
+        verify(exactly(1), getRequestedFor(urlEqualTo(BALANCE_URL)));
     }
 }

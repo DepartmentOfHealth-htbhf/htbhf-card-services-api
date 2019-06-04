@@ -5,16 +5,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.CardResponse;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsRequestDTO;
-import uk.gov.dhsc.htbhf.card.model.DepositFundsResponse;
+import uk.gov.dhsc.htbhf.card.model.*;
 
 @Service
 @Slf4j
 public class CardService {
 
     private static final String ENDPOINT = "/v1/cards";
+    private static final String BALANCE_ENDPOINT = "/balance";
+    private static final String DEPOSIT_ENDPOINT = "/deposit";
     private final String uri;
     private final RestTemplate restTemplate;
 
@@ -43,12 +42,24 @@ public class CardService {
      * @return The response
      */
     public DepositFundsResponse depositFunds(String cardId, DepositFundsRequestDTO depositFundsRequest) {
-        String cardUrl = buildCardUrl(cardId);
-        ResponseEntity<DepositFundsResponse> response = restTemplate.postForEntity(cardUrl, depositFundsRequest, DepositFundsResponse.class);
+        String depositUrl = buildUrl(cardId, DEPOSIT_ENDPOINT);
+        ResponseEntity<DepositFundsResponse> response = restTemplate.postForEntity(depositUrl, depositFundsRequest, DepositFundsResponse.class);
         return response.getBody();
     }
 
-    private String buildCardUrl(String cardId) {
-        return uri + "/" + cardId + "/deposit";
+    /**
+     * Call through to the card service provider to get the card's balance.
+     *
+     * @param cardId The card id
+     * @return The balance response
+     */
+    public CardBalance getBalance(String cardId) {
+        String balanceUrl = buildUrl(cardId, BALANCE_ENDPOINT);
+        ResponseEntity<CardBalance> response = restTemplate.getForEntity(balanceUrl, CardBalance.class);
+        return response.getBody();
+    }
+
+    private String buildUrl(String cardId, String endpoint) {
+        return uri + "/" + cardId + endpoint;
     }
 }

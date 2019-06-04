@@ -6,7 +6,7 @@ import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.CARD_ID;
 
 public class CardResponseTestDataFactory {
 
-    public static final CardResponse aValidCardResponse() {
+    public static CardResponse aValidCardResponse() {
         return CardResponse.builder().cardAccountId(CARD_ID).build();
     }
 }
