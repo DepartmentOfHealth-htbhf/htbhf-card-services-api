@@ -50,7 +50,6 @@ class CardServicesIntegrationTest {
     private ObjectMapper objectMapper;
 
     @AfterEach
-    @SuppressWarnings("PMD.UnnecessaryFullyQualifiedName")
     void tearDown() {
         WireMock.reset();
     }
