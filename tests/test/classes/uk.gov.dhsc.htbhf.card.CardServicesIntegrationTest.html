@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.683s</div>
+<div class="counter">0.611s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">shouldReturnBadRequestWithInvalidCardRequest()</td>
-<td class="success">0.011s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldReturnBadRequestWithInvalidDepositFundsRequest()</td>
-<td class="success">0.054s</td>
+<td class="success">0.027s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSuccessfullyCreateCard()</td>
-<td class="success">0.572s</td>
+<td class="success">0.520s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -99,7 +99,7 @@
 </tr>
 <tr>
 <td class="success">shouldSuccessfullyGetCardBalance()</td>
-<td class="success">0.023s</td>
+<td class="success">0.031s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,12 +107,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>10:38:20.208 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest], using SpringBootContextLoader
-10:38:20.208 [Test worker] [][] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-10:38:20.209 [Test worker] [][] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: CardServicesIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-10:38:20.220 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest
-10:38:20.221 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-10:38:20.222 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@77d386fb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57f10751, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@21e9bf6d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7d037376, org.springframework.test.context.support.DirtiesContextTestExecutionListener@168cc673, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4918807c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@25664ce5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@439813fc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3357faa2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3ec187d4, org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener@29d7f58d, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener@2a5314b8]
+<pre>09:42:27.880 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest], using SpringBootContextLoader
+09:42:27.882 [Test worker] [][] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+09:42:27.882 [Test worker] [][] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest]: CardServicesIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:42:27.896 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.CardServicesIntegrationTest
+09:42:27.900 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+09:42:27.902 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2c93f82a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@41f7b8d2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5c3e4b5c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6e932f6c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5df2d83c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@213fca78, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@f7511a8, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@786aa765, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3392a36c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6ca1d36c, org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener@4b7e6701, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener@6602a084]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -122,47 +122,47 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.6.RELEASE)
 
-10:38:20.239 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Starting CardServicesIntegrationTest on 380487ed8099 with PID 688 (started by circleci in /home/circleci/project/api)
-10:38:20.239 [Test worker] [][] DEBUG u.g.d.h.c.CardServicesIntegrationTest - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
-10:38:20.240 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - No active profile set, falling back to default profiles: default
-10:38:20.643 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
-10:38:20.644 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-10:38:20.644 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
-10:38:20.659 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-10:38:20.659 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 418 ms
-10:38:20.948 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
-10:38:21.163 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
-10:38:21.441 [Test worker] [][] INFO  wiremock.org.eclipse.jetty.util.log - Logging initialized @9521ms
-10:38:21.573 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity&lt;springfox.documentation.spring.web.json.Json&gt; springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-10:38:21.675 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-10:38:21.810 [Test worker] [][] INFO  w.org.eclipse.jetty.server.Server - jetty-9.2.z-SNAPSHOT
-10:38:21.830 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Started w.o.e.j.s.ServletContextHandler@43bb7f1a{/__admin,null,AVAILABLE}
-10:38:21.831 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Started w.o.e.j.s.ServletContextHandler@2822425d{/,null,AVAILABLE}
-10:38:21.836 [Test worker] [][] INFO  w.o.e.j.s.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@58ef5fc4{HTTP/1.1}{0.0.0.0:8120}
-10:38:21.836 [Test worker] [][] INFO  w.org.eclipse.jetty.server.Server - Started @9917ms
-10:38:21.837 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-10:38:21.838 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-10:38:21.843 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-10:38:21.880 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 39603 (http) with context path ''
-10:38:21.881 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Started CardServicesIntegrationTest in 1.657 seconds (JVM running for 9.961)
-10:38:21.884 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-08-23T10:38:21.883666&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
-10:38:21.962 [http-nio-auto-2-exec-1] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:38:21.963 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-10:38:21.973 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
-10:38:22.007 [http-nio-auto-2-exec-1] [][816c507d-8681-4139-ad77-5cd31959ab3e] DEBUG u.g.d.h.c.controller.CardController - Received new card request
-10:38:22.077 [qtp1588929267-56] [][] INFO  / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
-10:38:22.435 [qtp1588929267-56] [][] INFO  WireMock - Request received:
+09:42:27.924 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Starting CardServicesIntegrationTest on 661e2005f45f with PID 702 (started by circleci in /home/circleci/project/api)
+09:42:27.924 [Test worker] [][] DEBUG u.g.d.h.c.CardServicesIntegrationTest - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+09:42:27.925 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - No active profile set, falling back to default profiles: default
+09:42:28.340 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+09:42:28.341 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09:42:28.341 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+09:42:28.356 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:42:28.356 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 430 ms
+09:42:28.694 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
+09:42:28.979 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+09:42:29.287 [Test worker] [][] INFO  wiremock.org.eclipse.jetty.util.log - Logging initialized @9949ms
+09:42:29.450 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity&lt;springfox.documentation.spring.web.json.Json&gt; springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+09:42:29.584 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+09:42:29.733 [Test worker] [][] INFO  w.org.eclipse.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+09:42:29.753 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Started w.o.e.j.s.ServletContextHandler@3cc7370c{/__admin,null,AVAILABLE}
+09:42:29.753 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Started w.o.e.j.s.ServletContextHandler@3196644f{/,null,AVAILABLE}
+09:42:29.758 [Test worker] [][] INFO  w.o.e.j.s.NetworkTrafficServerConnector - Started NetworkTrafficServerConnector@4acc542{HTTP/1.1}{0.0.0.0:8120}
+09:42:29.759 [Test worker] [][] INFO  w.org.eclipse.jetty.server.Server - Started @10421ms
+09:42:29.759 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+09:42:29.760 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+09:42:29.765 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+09:42:29.803 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 43147 (http) with context path ''
+09:42:29.804 [Test worker] [][] INFO  u.g.d.h.c.CardServicesIntegrationTest - Started CardServicesIntegrationTest in 1.901 seconds (JVM running for 10.466)
+09:42:29.808 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-08-28T09:42:29.807222&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
+09:42:29.855 [http-nio-auto-2-exec-1] [][] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:42:29.855 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:42:29.865 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+09:42:29.882 [http-nio-auto-2-exec-1] [][ffacf2cd-6a5a-465d-99e3-34ea2226e27a] DEBUG u.g.d.h.c.controller.CardController - Received new card request
+09:42:29.953 [qtp223472218-56] [][] INFO  / - RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+09:42:30.311 [qtp223472218-56] [][] INFO  WireMock - Request received:
 127.0.0.1 - POST /v1/cards
 
 Accept: [application/json, application/*+json]
 User-Agent: [Java/11.0.4]
 Connection: [keep-alive]
-X-REQUEST-ID: [816c507d-8681-4139-ad77-5cd31959ab3e]
+X-REQUEST-ID: [ffacf2cd-6a5a-465d-99e3-34ea2226e27a]
 Host: [localhost:8120]
 X-SESSION-ID: []
 Content-Length: [298]
 Content-Type: [application/json;charset=UTF-8]
-{&quot;firstName&quot;:&quot;Homer&quot;,&quot;lastName&quot;:&quot;Simpson&quot;,&quot;address&quot;:{&quot;addressLine1&quot;:&quot;742 Evergreen Terrace&quot;,&quot;addressLine2&quot;:&quot;Mystery Spot&quot;,&quot;townOrCity&quot;:&quot;Springfield&quot;,&quot;postcode&quot;:&quot;AA1 1AA&quot;},&quot;dateOfBirth&quot;:[1985,12,31],&quot;email&quot;:&quot;homer@simpson.com&quot;,&quot;mobile&quot;:&quot;07700900000&quot;,&quot;claimId&quot;:&quot;c266240d-9818-452b-9713-9d1eb23dce00&quot;}
+{&quot;firstName&quot;:&quot;Homer&quot;,&quot;lastName&quot;:&quot;Simpson&quot;,&quot;address&quot;:{&quot;addressLine1&quot;:&quot;742 Evergreen Terrace&quot;,&quot;addressLine2&quot;:&quot;Mystery Spot&quot;,&quot;townOrCity&quot;:&quot;Springfield&quot;,&quot;postcode&quot;:&quot;AA1 1AA&quot;},&quot;dateOfBirth&quot;:[1985,12,31],&quot;email&quot;:&quot;homer@simpson.com&quot;,&quot;mobile&quot;:&quot;07700900000&quot;,&quot;claimId&quot;:&quot;a1753783-a2f1-4b79-b9d8-4f79fd85578a&quot;}
 
 
 Matched response definition:
@@ -177,17 +177,17 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [3c2ce832-d36d-44e8-aa14-e75ecafc88b3]
+Matched-Stub-Id: [b7169120-fae5-4c79-86d5-c0e28931cc3b]
 
 
-10:38:22.495 [http-nio-auto-2-exec-2] [][b9860741-243e-4f8d-9908-2d736d1f0e8d] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
-10:38:22.525 [http-nio-auto-2-exec-3] [][70db78b4-5a13-49af-8fc3-98f19e29b139] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
-10:38:22.534 [qtp1588929267-57] [][] INFO  WireMock - Request received:
+09:42:30.354 [http-nio-auto-2-exec-2] [][19f3ae23-7c1e-4b86-aa4d-85d0333a83cb] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
+09:42:30.371 [http-nio-auto-2-exec-3] [][35823fb4-73df-449c-956f-f3594e4c9723] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
+09:42:30.387 [qtp223472218-57] [][] INFO  WireMock - Request received:
 127.0.0.1 - GET /v1/cards/1/balance
 
 User-Agent: [Java/11.0.4]
 Connection: [keep-alive]
-X-REQUEST-ID: [70db78b4-5a13-49af-8fc3-98f19e29b139]
+X-REQUEST-ID: [35823fb4-73df-449c-956f-f3594e4c9723]
 Host: [localhost:8120]
 Accept: [application/json, application/*+json]
 X-SESSION-ID: []
@@ -206,23 +206,23 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [25b87e6a-9cdf-420e-bef9-1f4afdaea7f1]
+Matched-Stub-Id: [693c79ff-d6b6-4bab-8621-df4631025be6]
 
 
-10:38:22.548 [http-nio-auto-2-exec-4] [][3fc78ec5-f9f3-4407-8837-2add890264ea] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
-10:38:22.560 [http-nio-auto-2-exec-5] [][cf2b59d4-f9ed-40e1-921e-4bc5e54b60de] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
-10:38:22.570 [qtp1588929267-58] [][] INFO  WireMock - Request received:
+09:42:30.401 [http-nio-auto-2-exec-4] [][9026e89e-0766-4e0b-b4ad-118054b634a0] WARN  u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
+09:42:30.413 [http-nio-auto-2-exec-5] [][ffec7893-c4f4-43fb-a7fe-6f18d14cdec9] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
+09:42:30.422 [qtp223472218-58] [][] INFO  WireMock - Request received:
 127.0.0.1 - POST /v1/cards/1/deposit
 
 Accept: [application/json, application/*+json]
 User-Agent: [Java/11.0.4]
 Connection: [keep-alive]
-X-REQUEST-ID: [cf2b59d4-f9ed-40e1-921e-4bc5e54b60de]
+X-REQUEST-ID: [ffec7893-c4f4-43fb-a7fe-6f18d14cdec9]
 Host: [localhost:8120]
 X-SESSION-ID: []
 Content-Length: [73]
 Content-Type: [application/json;charset=UTF-8]
-{&quot;amountInPence&quot;:1240,&quot;reference&quot;:&quot;08dabeea-d859-4ff1-b4d0-d22276afe7d2&quot;}
+{&quot;amountInPence&quot;:1240,&quot;reference&quot;:&quot;df65678c-5e13-4bd7-aa42-ab87da0c9073&quot;}
 
 
 Matched response definition:
@@ -237,16 +237,16 @@ Matched response definition:
 Response:
 HTTP/1.1 200
 Content-Type: [application/json]
-Matched-Stub-Id: [4714b95e-052a-46d4-820d-d9c4145a2d9e]
+Matched-Stub-Id: [e0546087-bbae-4800-b3e6-985b32d94c04]
 
 
-10:38:22.576 [Test worker] [][] WARN  o.s.c.c.w.WireMockTestExecutionListener - You've used fixed ports for WireMock setup - will mark context as dirty. Please use random ports, as much as possible. Your tests will be faster and more reliable and this warning will go away
-10:38:22.583 [Test worker] [][] INFO  w.o.e.j.s.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@58ef5fc4{HTTP/1.1}{0.0.0.0:8120}
-10:38:22.584 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Stopped w.o.e.j.s.ServletContextHandler@2822425d{/,null,UNAVAILABLE}
-10:38:22.585 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Stopped w.o.e.j.s.ServletContextHandler@43bb7f1a{/__admin,null,UNAVAILABLE}
-10:38:22.585 [Test worker] [][] WARN  w.o.e.j.util.thread.QueuedThreadPool - qtp1588929267{STOPPING,8&lt;=8&lt;=10,i=5,q=5} Couldn't stop Thread[qtp1588929267-59,5,]
-10:38:22.585 [Test worker] [][] WARN  w.o.e.j.util.thread.QueuedThreadPool - qtp1588929267{STOPPING,8&lt;=8&lt;=10,i=0,q=5} Couldn't stop Thread[qtp1588929267-54,5,]
-10:38:22.586 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+09:42:30.429 [Test worker] [][] WARN  o.s.c.c.w.WireMockTestExecutionListener - You've used fixed ports for WireMock setup - will mark context as dirty. Please use random ports, as much as possible. Your tests will be faster and more reliable and this warning will go away
+09:42:30.436 [Test worker] [][] INFO  w.o.e.j.s.NetworkTrafficServerConnector - Stopped NetworkTrafficServerConnector@4acc542{HTTP/1.1}{0.0.0.0:8120}
+09:42:30.438 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Stopped w.o.e.j.s.ServletContextHandler@3196644f{/,null,UNAVAILABLE}
+09:42:30.438 [Test worker] [][] INFO  w.o.e.j.s.handler.ContextHandler - Stopped w.o.e.j.s.ServletContextHandler@3cc7370c{/__admin,null,UNAVAILABLE}
+09:42:30.439 [Test worker] [][] WARN  w.o.e.j.util.thread.QueuedThreadPool - qtp223472218{STOPPING,8&lt;=8&lt;=10,i=5,q=6} Couldn't stop Thread[qtp223472218-55,5,]
+09:42:30.439 [Test worker] [][] WARN  w.o.e.j.util.thread.QueuedThreadPool - qtp223472218{STOPPING,8&lt;=8&lt;=10,i=0,q=5} Couldn't stop Thread[qtp223472218-52,5,]
+09:42:30.439 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
 </pre>
 </span>
 </div>
@@ -258,7 +258,7 @@ Matched-Stub-Id: [4714b95e-052a-46d4-820d-d9c4145a2d9e]
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6</a> at Aug 23, 2019, 10:38:24 AM</p>
+<a href="http://www.gradle.org">Gradle 5.6</a> at Aug 28, 2019, 9:42:32 AM</p>
 </div>
 </div>
 </body>
