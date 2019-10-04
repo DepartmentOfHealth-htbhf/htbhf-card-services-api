@@ -2,7 +2,6 @@ buildscript {
     ext {
         junitVersion = '5.3.2'
         springFoxVersion = '2.9.2'
-        jacksonDatabindVersion = '2.9.9.1'
         jacksonDataformatVersion = '2.9.9'
     }
     dependencies {
@@ -17,7 +16,7 @@ plugins {
     id "com.github.spotbugs" version "2.0.0"
     id 'pmd'
     id 'checkstyle'
-    id "org.springframework.boot" version "2.1.6.RELEASE"
+    id "org.springframework.boot" version "2.1.9.RELEASE"
 }
 
 apply plugin: 'java'
@@ -43,7 +42,6 @@ repositories {
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "commons-io:commons-io:2.5"
     implementation "io.springfox:springfox-swagger2:${springFoxVersion}"
