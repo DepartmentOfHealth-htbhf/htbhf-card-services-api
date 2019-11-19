@@ -53,6 +53,7 @@ dependencies {
     implementation "uk.gov.dhsc.htbhf:htbhf-common-rest:latest.release"
     implementation "uk.gov.dhsc.htbhf:htbhf-common-logging:latest.release"
     implementation "org.apache.commons:commons-lang3:3.8.1"
+    implementation "com.nimbusds:nimbus-jose-jwt:8.2.1"
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "org.mockito:mockito-junit-jupiter:2.23.4"
