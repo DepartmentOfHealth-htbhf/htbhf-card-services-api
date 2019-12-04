@@ -6,8 +6,8 @@ import uk.gov.dhsc.htbhf.card.model.CardRequestDTO;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import static uk.gov.dhsc.htbhf.TestConstants.*;
 import static uk.gov.dhsc.htbhf.card.testhelper.AddressDTOTestDataFactory.aValidAddress;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.*;
 
 public class CardRequestDTOTestDataFactory {
 
@@ -60,8 +60,8 @@ public class CardRequestDTOTestDataFactory {
     private static CardRequestDTO.CardRequestDTOBuilder defaultCardRequestBuilder() {
         return CardRequestDTO.builder()
                 .claimId(UUID.randomUUID().toString())
-                .firstName(HOMER_FIRST_NAME)
-                .lastName(SIMPSON_LAST_NAME)
+                .firstName(HOMER_FORENAME)
+                .lastName(SIMPSON_SURNAME)
                 .dateOfBirth(HOMER_DATE_OF_BIRTH)
                 .email(HOMER_EMAIL)
                 .mobile(HOMER_MOBILE)
