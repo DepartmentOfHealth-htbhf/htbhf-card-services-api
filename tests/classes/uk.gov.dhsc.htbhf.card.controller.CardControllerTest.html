@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.139s</div>
+<div class="counter">0.694s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">shouldCreateCard()</td>
-<td class="success">0.017s</td>
+<td class="success">0.024s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldDepositFundsToCard()</td>
-<td class="success">0.020s</td>
+<td class="success">0.026s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldGetCardBalance()</td>
-<td class="success">0.041s</td>
+<td class="success">0.057s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldReturnBadRequestWhenCreatingCardWithAddressMissing()</td>
-<td class="success">0.052s</td>
+<td class="success">0.574s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldReturnBadRequestWhenDepositFundsWithNoAmount()</td>
-<td class="success">0.009s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,12 +107,24 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:11:26.358 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest], using SpringBootContextLoader
-14:11:26.359 [Test worker] [][] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-14:11:26.359 [Test worker] [][] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:11:26.366 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.controller.CardControllerTest
-14:11:26.368 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-14:11:26.369 [Test worker] [][] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@182a44c8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@19db2708, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2b785a1e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3ed0aeb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7496b1a1, org.springframework.test.context.event.EventPublishingTestExecutionListener@34352b5c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5df43f6e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@666a9771, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@273029a4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3a4299d5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4631cebc, org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener@74521814, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener@52096233]
+<pre>14:10:19.989 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+14:10:20.027 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+14:10:20.087 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+14:10:20.114 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest], using SpringBootContextLoader
+14:10:20.122 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: class path resource [uk/gov/dhsc/htbhf/card/controller/CardControllerTest-context.xml] does not exist
+14:10:20.122 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: class path resource [uk/gov/dhsc/htbhf/card/controller/CardControllerTestContext.groovy] does not exist
+14:10:20.122 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:10:20.123 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:10:20.191 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]
+14:10:20.381 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/circleci/project/api/build/classes/java/main/uk/gov/dhsc/htbhf/card/CardServicesApplication.class]
+14:10:20.382 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uk.gov.dhsc.htbhf.card.CardServicesApplication for test class uk.gov.dhsc.htbhf.card.controller.CardControllerTest
+14:10:20.535 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [uk.gov.dhsc.htbhf.card.controller.CardControllerTest]: using defaults.
+14:10:20.536 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+14:10:20.558 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/TransactionDefinition]
+14:10:20.559 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+14:10:20.560 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@39248e7a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5a699b9b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5111a20, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2e1c0460, org.springframework.test.context.support.DirtiesContextTestExecutionListener@33d60887, org.springframework.test.context.event.EventPublishingTestExecutionListener@2575e825, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@28b826b1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@664908c2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@65d8a6bc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6fe65ee2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6027001, org.springframework.cloud.contract.stubrunner.provider.wiremock.StubRunnerWireMockTestExecutionListener@2823671b, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener@86ec9e5]
+14:10:20.567 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@150ea6a2 testClass = CardControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@180a493e testClass = CardControllerTest, locations = '{}', classes = '{class uk.gov.dhsc.htbhf.card.CardServicesApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6c498d6d, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2ff5381b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6550ab9c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@89fe1ef9, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6f3a3131], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+14:10:20.605 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -122,33 +134,32 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.0.RELEASE)
 
-14:11:26.396 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - Starting CardControllerTest on 4156a6a83510 with PID 696 (started by circleci in /home/circleci/project/api)
-14:11:26.397 [Test worker] [][] DEBUG u.g.d.h.c.c.CardControllerTest - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
-14:11:26.397 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - No active profile set, falling back to default profiles: default
-14:11:26.907 [Test worker] [][] WARN  o.a.tomcat.util.modeler.Registry - The MBean registry cannot be disabled because it has already been initialised
-14:11:26.910 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
-14:11:26.911 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-14:11:26.911 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
-14:11:26.928 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-14:11:26.929 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 526 ms
-14:11:27.103 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
-14:11:27.298 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
-14:11:27.402 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-14:11:27.509 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-14:11:27.649 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-14:11:27.650 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-14:11:27.654 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-14:11:27.700 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 44857 (http) with context path ''
-14:11:27.702 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - Started CardControllerTest in 1.33 seconds (JVM running for 10.628)
-14:11:27.705 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-11-08T14:11:27.704054&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
-14:11:27.724 [http-nio-auto-2-exec-1] [][] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-14:11:27.725 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-14:11:27.733 [http-nio-auto-2-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
-14:11:27.753 [http-nio-auto-2-exec-1] [][5978c841-d5db-41da-acba-76dae2d5df42] ERROR u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
-14:11:27.793 [http-nio-auto-2-exec-2] [][faab70e2-f426-4d06-8442-bc07476d8835] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
-14:11:27.821 [http-nio-auto-2-exec-3] [][9870b752-b1c8-46e3-90b5-24aea32a2e64] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
-14:11:27.836 [http-nio-auto-2-exec-4] [][5ab72529-512f-497f-9b35-dcf71659cc09] ERROR u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
-14:11:27.852 [http-nio-auto-2-exec-5] [][bbf15944-067f-4b18-80d5-0d54a873bbaa] DEBUG u.g.d.h.c.controller.CardController - Received new card request
+14:10:21.167 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - Starting CardControllerTest on 02ffe57c1339 with PID 719 (started by circleci in /home/circleci/project/api)
+14:10:21.169 [Test worker] [][] DEBUG u.g.d.h.c.c.CardControllerTest - Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+14:10:21.170 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - No active profile set, falling back to default profiles: default
+14:10:24.807 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+14:10:24.831 [Test worker] [][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:10:24.832 [Test worker] [][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+14:10:25.002 [Test worker] [][] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:10:25.003 [Test worker] [][] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3283 ms
+14:10:25.503 [Test worker] [][] DEBUG u.g.d.h.r.RequestIdFilter - Filter 'requestIdFilter' configured for use
+14:10:26.141 [Test worker] [][] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+14:10:26.448 [Test worker] [][] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+14:10:26.687 [Test worker] [][] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+14:10:27.308 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+14:10:27.337 [Test worker] [][] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+14:10:27.394 [Test worker] [][] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+14:10:27.748 [Test worker] [][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 33265 (http) with context path ''
+14:10:27.754 [Test worker] [][] INFO  u.g.d.h.c.c.CardControllerTest - Started CardControllerTest in 7.143 seconds (JVM running for 8.95)
+14:10:27.849 [Test worker] [][] INFO  u.gov.dhsc.htbhf.logging.EventLogger - {&quot;eventType&quot;:&quot;APPLICATION_STARTED&quot;,&quot;timestamp&quot;:&quot;2019-12-04T14:10:27.810952&quot;,&quot;applicationId&quot;:&quot;&quot;,&quot;applicationVersion&quot;:&quot;&quot;,&quot;instanceIndex&quot;:&quot;&quot;}
+14:10:28.112 [http-nio-auto-1-exec-1] [][] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:10:28.113 [http-nio-auto-1-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:10:28.133 [http-nio-auto-1-exec-1] [][] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+14:10:28.303 [http-nio-auto-1-exec-1] [][6aff8b07-f470-470b-8425-d661ee0fbf24] ERROR u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards: [ErrorResponse.FieldError(field=address, message=must not be null)]
+14:10:28.476 [http-nio-auto-1-exec-2] [][2dc22d5a-5c1e-4390-a7f2-a0c8040be1af] DEBUG u.g.d.h.c.controller.CardController - Received request for card balance
+14:10:28.517 [http-nio-auto-1-exec-3] [][410e4e21-f6f2-4c77-83db-4f07d37f821e] DEBUG u.g.d.h.c.controller.CardController - Received new deposit funds request
+14:10:28.533 [http-nio-auto-1-exec-4] [][6030151a-ccb5-4b0f-92bf-d877a832e46b] ERROR u.g.d.h.errorhandler.ErrorHandler - Binding error(s) during incoming POST request to /v1/cards/1/deposit: [ErrorResponse.FieldError(field=amountInPence, message=must not be null)]
+14:10:28.555 [http-nio-auto-1-exec-5] [][b3e365f4-0ef3-4386-97e8-5eedd338e179] DEBUG u.g.d.h.c.controller.CardController - Received new card request
 </pre>
 </span>
 </div>
@@ -160,7 +171,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6</a> at Nov 8, 2019, 2:13:11 PM</p>
+<a href="http://www.gradle.org">Gradle 5.6</a> at Dec 4, 2019, 2:12:09 PM</p>
 </div>
 </div>
 </body>
