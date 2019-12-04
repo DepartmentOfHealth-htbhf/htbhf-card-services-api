@@ -2,10 +2,10 @@ package uk.gov.dhsc.htbhf.card.testhelper;
 
 import uk.gov.dhsc.htbhf.card.model.AddressDTO;
 
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSONS_ADDRESS_LINE_1;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSONS_ADDRESS_LINE_2;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSONS_POSTCODE;
-import static uk.gov.dhsc.htbhf.card.testhelper.TestConstants.SIMPSONS_TOWN;
+import static uk.gov.dhsc.htbhf.TestConstants.SIMPSONS_ADDRESS_LINE_1;
+import static uk.gov.dhsc.htbhf.TestConstants.SIMPSONS_ADDRESS_LINE_2;
+import static uk.gov.dhsc.htbhf.TestConstants.SIMPSONS_POSTCODE;
+import static uk.gov.dhsc.htbhf.TestConstants.SIMPSONS_TOWN;
 
 public class AddressDTOTestDataFactory {
 
